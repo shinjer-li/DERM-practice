@@ -1,78 +1,465 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dermatology Practice</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="logo2.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedFlash — Medical Image Review</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    /* ── Home-specific styles ── */
+    .page-hero {
+      padding: 52px 0 36px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .page-hero h1 {
+      font-size: 2rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .page-hero p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* ── System grid ── */
+    .systems-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .system-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .system-card:hover {
+      border-color: var(--border-mid);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .system-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      /* user-select: none; */
+    }
+
+    .system-header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .system-icon {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-light);
+      border-radius: var(--radius);
+      color: var(--accent);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .system-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+    }
+
+    .system-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-family: var(--sans);
+    }
+
+    .system-practice-btn {
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-mid);
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+      font-family: var(--sans);
+      white-space: nowrap;
+    }
+
+    .system-practice-btn:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    /* ── Groups inside a card ── */
+    .system-body {
+      padding: 16px 20px;
+    }
+
+    .group-block {
+      margin-bottom: 16px;
+    }
+
+    .group-block:last-child { margin-bottom: 0; }
+
+    .group-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .disease-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .disease-chip {
+      font-size: 0.8rem;
+      padding: 3px 9px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--text-secondary);
+      background: var(--bg);
+      cursor: pointer;
+      transition: background 0.12s, color 0.12s, border-color 0.12s;
+      font-family: var(--sans);
+    }
+
+    .disease-chip:hover {
+      background: var(--accent-light);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .disease-chip.no-images {
+      opacity: 0.45;
+      cursor: default;
+    }
+
+    .disease-chip.no-images:hover {
+      background: var(--bg);
+      border-color: var(--border);
+      color: var(--text-secondary);
+    }
+
+    /* ── Practice modal ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(20,18,14,0.45);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      max-width: 440px;
+      width: 90%;
+      box-shadow: var(--shadow);
+    }
+
+    .modal h2 {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+
+    .modal-subtitle {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: var(--text-secondary);
+      letter-spacing: 0.02em;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      font-family: var(--sans);
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--text-primary);
+      transition: border-color 0.15s;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 5px;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 24px;
+    }
+
+    /* ── Loading notice ── */
+    .load-notice {
+      text-align: center;
+      padding: 80px 24px;
+      color: var(--text-muted);
+    }
+
+    .load-notice .spinner {
+      margin: 0 auto 16px;
+    }
+  </style>
 </head>
 <body>
-    <!-- Home Screen -->
-    <div id="homeScreen" class="screen active">
-        <div class="container">
-            <h1>Dermatology Practice</h1>
-            <p class="subtitle">Select conditions to practice</p>
-            
-            <div class="condition-list" id="conditionList">
-                <!-- Will be populated by JavaScript -->
-            </div>
-            
-            <div class="controls">
-                <div class="select-buttons">
-                    <button onclick="selectAll()">Select All</button>
-                    <button onclick="deselectAll()">Deselect All</button>
-                </div>
-                
-                <div class="count-input">
-                    <label for="imageCount">Number of images to practice:</label>
-                    <input type="number" id="imageCount" min="1" value="20">
-                </div>
-                
-                <button class="start-button" onclick="startPractice()">Start Practice</button>
-            </div>
-        </div>
+
+<header class="site-header">
+  <div class="inner">
+    <span class="site-logo">Shinjer's <span>Practice</span></span>
+    <nav class="site-nav">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="browse.html" class="nav-link">Browse</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="page-hero">
+      <h1>Image review for EVMS Organ Systems</h1>
+      <p>Select an organ system to practice, click any pathology to browse its images, or start a custom session.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="openPracticeModal('all')">
+          <i class="ti ti-player-play" aria-hidden="true"></i> Practice all
+        </button>
+        <a href="browse.html" class="btn">
+          <i class="ti ti-photo-search" aria-hidden="true"></i> Browse images
+        </a>
+      </div>
     </div>
 
-    <!-- Practice Screen -->
-    <div id="practiceScreen" class="screen">
-        <div class="practice-container">
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
-            
-            <div class="progress-text" id="progressText">1 / 20</div>
-            
-            <div class="image-container">
-                <img id="practiceImage" src="" alt="Dermatology condition">
-            </div>
-            
-            <div class="answer-container">
-                <div id="answerText" class="answer hidden">Answer will appear here</div>
-            </div>
-            
-            <div class="practice-controls">
-                <button onclick="previousImage()" id="prevBtn">← Previous</button>
-                <button onclick="toggleAnswer()" id="revealBtn">Reveal</button>
-                <button onclick="nextImage()" id="nextBtn">Next →</button>
-            </div>
-        </div>
+    <div id="systems-container">
+      <div class="load-notice">
+        <div class="spinner"></div>
+        <p>Loading catalog…</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Practice Setup Modal -->
+<div class="modal-overlay" id="practice-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal">
+    <h2 id="modal-title">Start practice</h2>
+    <p class="modal-subtitle" id="modal-subtitle">Configure your session</p>
+
+    <div class="form-group">
+      <label class="form-label" for="image-count">Number of images</label>
+      <input class="form-input" type="number" id="image-count" min="1" max="200" value="20" />
+      <p class="form-note" id="images-available"></p>
     </div>
 
-    <!-- Completion Screen -->
-    <div id="completionScreen" class="screen">
-        <div class="container">
-            <h1>Practice Complete!</h1>
-            <p class="completion-message">You've completed all <span id="completedCount">0</span> images.</p>
-            
-            <div class="completion-controls">
-                <button onclick="restartPractice()">Practice Again</button>
-                <button onclick="goHome()">Back to Home</button>
-            </div>
-        </div>
+    <div class="form-group">
+      <label class="form-label" for="shuffle-toggle">Order</label>
+      <select class="form-input" id="shuffle-toggle">
+        <option value="shuffle">Shuffled</option>
+        <option value="ordered">In order</option>
+      </select>
     </div>
 
-    <script src="imageConfig.js"></script>
-    <script src="script.js"></script>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="startPractice()">
+        <i class="ti ti-player-play" aria-hidden="true"></i> Begin
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="catalog.js"></script>
+<script src="app.js"></script>
+<script>
+  let currentScope = 'all'; // 'all', a system id, or a disease name
+
+  // ── Render catalog ───────────────────────────────────────────
+  async function init() {
+    await loadManifest();
+    renderSystems();
+  }
+
+  function renderSystems() {
+    const container = document.getElementById('systems-container');
+    container.innerHTML = '';
+
+    const grid = document.createElement('div');
+    grid.className = 'systems-grid';
+
+    for (const system of CATALOG) {
+      grid.appendChild(buildSystemCard(system));
+    }
+
+    container.appendChild(grid);
+  }
+
+  function buildSystemCard(system) {
+    const card = document.createElement('div');
+    card.className = 'system-card';
+
+    const totalImages = countSystemImages(system);
+
+    card.innerHTML = `
+      <div class="system-header" onclick="openPracticeModal('${system.id}')">
+        <div class="system-header-left">
+          <div class="system-icon"><i class="ti ${system.icon}" aria-hidden="true"></i></div>
+          <div>
+            <div class="system-title">${system.label}</div>
+            <div class="system-meta">${totalImages} image${totalImages !== 1 ? 's' : ''}</div>
+          </div>
+        </div>
+        <button class="system-practice-btn" onclick="event.stopPropagation(); openPracticeModal('${system.id}')">
+          Practice
+        </button>
+      </div>
+      <div class="system-body">
+        ${system.groups.map(g => buildGroup(g)).join('')}
+      </div>
+    `;
+
+    return card;
+  }
+
+  function buildGroup(group) {
+    const chips = group.diseases.map(d => {
+      const imgs = getImagesForDisease(d);
+      const hasImages = imgs.length > 0;
+      const count = hasImages ? ` <span style="color:var(--text-muted);font-size:0.72rem">${imgs.length}</span>` : '';
+      return `<button class="disease-chip${hasImages ? '' : ' no-images'}"
+        ${hasImages ? `onclick="openPracticeModal('disease:${escAttr(d)}')"` : ''}
+        title="${hasImages ? `${imgs.length} image${imgs.length !== 1 ? 's' : ''}` : 'No images loaded'}"
+      >${d}${count}</button>`;
+    }).join('');
+
+    return `
+      <div class="group-block">
+        <div class="group-label">${group.label}</div>
+        <div class="disease-chips">${chips}</div>
+      </div>
+    `;
+  }
+
+  function countSystemImages(system) {
+    let n = 0;
+    for (const g of system.groups) {
+      for (const d of g.diseases) {
+        n += getImagesForDisease(d).length;
+      }
+    }
+    return n;
+  }
+
+  // ── Modal ────────────────────────────────────────────────────
+  function openPracticeModal(scope) {
+    currentScope = scope;
+    const images = getImagesForScope(scope);
+    const modal = document.getElementById('practice-modal');
+
+    let subtitle = 'All systems';
+    if (scope === 'all') {
+      subtitle = 'All systems';
+    } else if (scope.startsWith('disease:')) {
+      subtitle = scope.replace('disease:', '');
+    } else {
+      const sys = CATALOG.find(s => s.id === scope);
+      if (sys) subtitle = sys.label;
+    }
+
+    document.getElementById('modal-subtitle').textContent = subtitle;
+    document.getElementById('image-count').value = Math.min(20, images.length);
+    document.getElementById('image-count').max = images.length;
+    document.getElementById('images-available').textContent =
+      images.length > 0 ? `${images.length} images available` : 'No images found for this selection.';
+
+    modal.classList.add('open');
+    document.getElementById('image-count').focus();
+  }
+
+  function closeModal() {
+    document.getElementById('practice-modal').classList.remove('open');
+  }
+
+  document.getElementById('practice-modal').addEventListener('click', e => {
+    if (e.target === e.currentTarget) closeModal();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  function startPractice() {
+    const count = parseInt(document.getElementById('image-count').value, 10);
+    const shuffle = document.getElementById('shuffle-toggle').value === 'shuffle';
+    if (!count || count < 1) return;
+
+    const params = new URLSearchParams({
+      scope: currentScope,
+      count: count,
+      shuffle: shuffle ? '1' : '0'
+    });
+    window.location.href = `practice.html?${params}`;
+  }
+
+  function escAttr(s) {
+    return s.replace(/'/g, "\\'");
+  }
+
+  init();
+</script>
 </body>
 </html>

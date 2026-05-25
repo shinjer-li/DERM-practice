@@ -1,0 +1,763 @@
+{
+  "Acanthosis Nigricans": [
+    "images/Acanthosis Nigricans/3361535.jpg",
+    "images/Acanthosis Nigricans/3361998.jpg",
+    "images/Acanthosis Nigricans/363080.jpg",
+    "images/Acanthosis Nigricans/40703.jpg",
+    "images/Acanthosis Nigricans/40813.jpg",
+    "images/Acanthosis Nigricans/40895.jpg",
+    "images/Acanthosis Nigricans/41024.jpg"
+  ],
+  "Acne Vulgaris": [
+    "images/Acne Vulgaris/2106161.jpg",
+    "images/Acne Vulgaris/3267893.jpg",
+    "images/Acne Vulgaris/3272505.jpg",
+    "images/Acne Vulgaris/3273422.jpg",
+    "images/Acne Vulgaris/396782.jpg",
+    "images/Acne Vulgaris/397165.jpg",
+    "images/Acne Vulgaris/519488.jpg",
+    "images/Acne Vulgaris/927671.jpg",
+    "images/Acne Vulgaris/929214.jpg"
+  ],
+  "Actinic Keratosis": [
+    "images/Actinic Keratosis/3311616.jpg",
+    "images/Actinic Keratosis/3311772.jpg",
+    "images/Actinic Keratosis/3312200.jpg",
+    "images/Actinic Keratosis/3312587.jpg",
+    "images/Actinic Keratosis/3312846.jpg",
+    "images/Actinic Keratosis/5453685.jpg",
+    "images/Actinic Keratosis/82140.jpg",
+    "images/Actinic Keratosis/860937.jpg"
+  ],
+  "Acute Lymphoblastic Leukemia (ALL)": [
+    "images/Acute Lymphoblastic Leukemia (ALL)/1.jpg",
+    "images/Acute Lymphoblastic Leukemia (ALL)/2.jpg",
+    "images/Acute Lymphoblastic Leukemia (ALL)/3.jpg",
+    "images/Acute Lymphoblastic Leukemia (ALL)/4.jpg",
+    "images/Acute Lymphoblastic Leukemia (ALL)/5.jpg",
+    "images/Acute Lymphoblastic Leukemia (ALL)/6.jpg"
+  ],
+  "Acute Myeloid Leukemia (AML)": [
+    "images/Acute Myeloid Leukemia (AML)/1.jpg",
+    "images/Acute Myeloid Leukemia (AML)/10.jpg",
+    "images/Acute Myeloid Leukemia (AML)/2.jpg",
+    "images/Acute Myeloid Leukemia (AML)/3.jpg",
+    "images/Acute Myeloid Leukemia (AML)/4.jpg",
+    "images/Acute Myeloid Leukemia (AML)/5.jpg",
+    "images/Acute Myeloid Leukemia (AML)/6.jpg",
+    "images/Acute Myeloid Leukemia (AML)/7.jpg",
+    "images/Acute Myeloid Leukemia (AML)/8.jpg",
+    "images/Acute Myeloid Leukemia (AML)/9.jpg"
+  ],
+  "Allergic Contact Dermatitis": [
+    "images/Allergic Contact Dermatitis/172031.jpg",
+    "images/Allergic Contact Dermatitis/307504.jpg",
+    "images/Allergic Contact Dermatitis/559015.jpg",
+    "images/Allergic Contact Dermatitis/559688.jpg",
+    "images/Allergic Contact Dermatitis/561135.jpg",
+    "images/Allergic Contact Dermatitis/568755.jpg",
+    "images/Allergic Contact Dermatitis/574090.jpg",
+    "images/Allergic Contact Dermatitis/575496.jpg",
+    "images/Allergic Contact Dermatitis/577037.jpg"
+  ],
+  "Aplastic anemia": [
+    "images/Aplastic anemia/1.jpg",
+    "images/Aplastic anemia/2.jpg",
+    "images/Aplastic anemia/3.jpg",
+    "images/Aplastic anemia/4.jpg",
+    "images/Aplastic anemia/5.jpg"
+  ],
+  "Atopic Dermatitis": [
+    "images/Atopic Dermatitis/214627.jpg",
+    "images/Atopic Dermatitis/2561917.jpg",
+    "images/Atopic Dermatitis/2796722.jpg",
+    "images/Atopic Dermatitis/3880375.jpg",
+    "images/Atopic Dermatitis/3880438.jpg",
+    "images/Atopic Dermatitis/543820.jpg",
+    "images/Atopic Dermatitis/544569.jpg",
+    "images/Atopic Dermatitis/5805667.jpg"
+  ],
+  "Basal Cell Carcinoma (BCC)": [
+    "images/Basal Cell Carcinoma (BCC)/394438.jpg",
+    "images/Basal Cell Carcinoma (BCC)/394808.jpg",
+    "images/Basal Cell Carcinoma (BCC)/548412.jpg",
+    "images/Basal Cell Carcinoma (BCC)/8213860.jpg",
+    "images/Basal Cell Carcinoma (BCC)/82943.jpg"
+  ],
+  "Basophil": [
+    "images/Basophil/1.jpg",
+    "images/Basophil/2.jpg",
+    "images/Basophil/3.jpg",
+    "images/Basophil/4.jpg",
+    "images/Basophil/5.jpg"
+  ],
+  "Basophilic stippling": [
+    "images/Basophilic stippling/1.jpg",
+    "images/Basophilic stippling/2.jpg",
+    "images/Basophilic stippling/3.jpg",
+    "images/Basophilic stippling/4.jpg",
+    "images/Basophilic stippling/5.jpg"
+  ],
+  "Bullous Pemphigoid": [
+    "images/Bullous Pemphigoid/1.jpg",
+    "images/Bullous Pemphigoid/1676791.jpg",
+    "images/Bullous Pemphigoid/1677181.jpg",
+    "images/Bullous Pemphigoid/1677223.jpg",
+    "images/Bullous Pemphigoid/2.jpg",
+    "images/Bullous Pemphigoid/226291.jpg",
+    "images/Bullous Pemphigoid/3.jpg",
+    "images/Bullous Pemphigoid/4.jpg",
+    "images/Bullous Pemphigoid/5.jpg",
+    "images/Bullous Pemphigoid/770305.jpg"
+  ],
+  "Burkitt lymphoma": [
+    "images/Burkitt lymphoma/1.png",
+    "images/Burkitt lymphoma/2.JPG",
+    "images/Burkitt lymphoma/3.jpg",
+    "images/Burkitt lymphoma/4.jpg",
+    "images/Burkitt lymphoma/5.gif",
+    "images/Burkitt lymphoma/6.jpg"
+  ],
+  "Candida Albicans": [
+    "images/Candida Albicans/1.jpg",
+    "images/Candida Albicans/2.jpg",
+    "images/Candida Albicans/3.jpg",
+    "images/Candida Albicans/4.jpg",
+    "images/Candida Albicans/5.jpg",
+    "images/Candida Albicans/6.jpg",
+    "images/Candida Albicans/7.jpg"
+  ],
+  "Cellulitis": [
+    "images/Cellulitis/2929664.jpg",
+    "images/Cellulitis/3025050.jpg",
+    "images/Cellulitis/3352571.jpg",
+    "images/Cellulitis/424603.jpg",
+    "images/Cellulitis/424717.jpg",
+    "images/Cellulitis/4283822.jpg",
+    "images/Cellulitis/453515.jpg",
+    "images/Cellulitis/5299199.jpg"
+  ],
+  "Chronic Lymphocytic Leukemia (CLL)": [
+    "images/Chronic Lymphocytic Leukemia (CLL)/1.webp",
+    "images/Chronic Lymphocytic Leukemia (CLL)/2.webp"
+  ],
+  "Dacrocytes (\u201cteardrop cells\u201d)": [
+    "images/Dacrocytes (\u201cteardrop cells\u201d)/1.jpg",
+    "images/Dacrocytes (\u201cteardrop cells\u201d)/2.jpg",
+    "images/Dacrocytes (\u201cteardrop cells\u201d)/3.jpg",
+    "images/Dacrocytes (\u201cteardrop cells\u201d)/4.jpg",
+    "images/Dacrocytes (\u201cteardrop cells\u201d)/5.jpg"
+  ],
+  "Degmacytes (\u201cbite cells\u201d)": [
+    "images/Degmacytes (\u201cbite cells\u201d)/1.jpg",
+    "images/Degmacytes (\u201cbite cells\u201d)/2.jpg",
+    "images/Degmacytes (\u201cbite cells\u201d)/3.jpg",
+    "images/Degmacytes (\u201cbite cells\u201d)/4.jpg",
+    "images/Degmacytes (\u201cbite cells\u201d)/5.jpg"
+  ],
+  "Dermatitis Herpetiformis": [
+    "images/Dermatitis Herpetiformis/146935.jpg",
+    "images/Dermatitis Herpetiformis/2652485.jpg",
+    "images/Dermatitis Herpetiformis/2652863.jpg",
+    "images/Dermatitis Herpetiformis/2664056.jpg",
+    "images/Dermatitis Herpetiformis/4795391.jpg",
+    "images/Dermatitis Herpetiformis/587840.jpg",
+    "images/Dermatitis Herpetiformis/588218.jpg",
+    "images/Dermatitis Herpetiformis/588479.jpg",
+    "images/Dermatitis Herpetiformis/7180352.jpg"
+  ],
+  "Drug Induced Hypersensitivity Syndrome (DIHS)": [
+    "images/Drug Induced Hypersensitivity Syndrome (DIHS)/1094591.jpg",
+    "images/Drug Induced Hypersensitivity Syndrome (DIHS)/1094720.jpg",
+    "images/Drug Induced Hypersensitivity Syndrome (DIHS)/1094838.jpg",
+    "images/Drug Induced Hypersensitivity Syndrome (DIHS)/1095029.jpg",
+    "images/Drug Induced Hypersensitivity Syndrome (DIHS)/3566.jpg",
+    "images/Drug Induced Hypersensitivity Syndrome (DIHS)/3619.jpg",
+    "images/Drug Induced Hypersensitivity Syndrome (DIHS)/3727.jpg",
+    "images/Drug Induced Hypersensitivity Syndrome (DIHS)/4785850.jpg",
+    "images/Drug Induced Hypersensitivity Syndrome (DIHS)/9808129.jpg"
+  ],
+  "Drug-induced Photosensitivity": [
+    "images/Drug-induced Photosensitivity/2198507.jpg",
+    "images/Drug-induced Photosensitivity/220003.jpg",
+    "images/Drug-induced Photosensitivity/2202403.jpg",
+    "images/Drug-induced Photosensitivity/2884425.jpg",
+    "images/Drug-induced Photosensitivity/374069.jpg",
+    "images/Drug-induced Photosensitivity/374263.jpg",
+    "images/Drug-induced Photosensitivity/374940.jpg",
+    "images/Drug-induced Photosensitivity/374982.jpg"
+  ],
+  "Echinocytes (\u201cburr cells\u201d)": [
+    "images/Echinocytes (\u201cburr cells\u201d)/1.jpg",
+    "images/Echinocytes (\u201cburr cells\u201d)/2.jpg",
+    "images/Echinocytes (\u201cburr cells\u201d)/3.jpg",
+    "images/Echinocytes (\u201cburr cells\u201d)/4.jpg",
+    "images/Echinocytes (\u201cburr cells\u201d)/5.jpg"
+  ],
+  "Edema (Utricaria)": [
+    "images/Edema (Utricaria)/1.jpg",
+    "images/Edema (Utricaria)/2.jpg",
+    "images/Edema (Utricaria)/3.jpg"
+  ],
+  "Eosinophil": [
+    "images/Eosinophil/1.jpg",
+    "images/Eosinophil/2.jpg",
+    "images/Eosinophil/3.jpg",
+    "images/Eosinophil/4.jpg",
+    "images/Eosinophil/5.jpg"
+  ],
+  "Erysipelas": [
+    "images/Erysipelas/1822243.jpg",
+    "images/Erysipelas/1822463.jpg",
+    "images/Erysipelas/1822521.jpg",
+    "images/Erysipelas/2766783.jpg",
+    "images/Erysipelas/280184.jpg",
+    "images/Erysipelas/280199.jpg",
+    "images/Erysipelas/47546.jpg"
+  ],
+  "Erythema Infectiosum": [
+    "images/Erythema Infectiosum/1895580.jpg",
+    "images/Erythema Infectiosum/1895744.jpg",
+    "images/Erythema Infectiosum/1908866.jpg",
+    "images/Erythema Infectiosum/3874751.jpg",
+    "images/Erythema Infectiosum/5170808.jpg",
+    "images/Erythema Infectiosum/5511037.jpg",
+    "images/Erythema Infectiosum/6998210.jpg"
+  ],
+  "Erythema Multiforme": [
+    "images/Erythema Multiforme/132338.jpg",
+    "images/Erythema Multiforme/30307.jpg",
+    "images/Erythema Multiforme/609983.jpg",
+    "images/Erythema Multiforme/610372.jpg",
+    "images/Erythema Multiforme/611620.jpg",
+    "images/Erythema Multiforme/612095.jpg"
+  ],
+  "Erythema Nodosum": [
+    "images/Erythema Nodosum/46132.jpg",
+    "images/Erythema Nodosum/4628737.jpg",
+    "images/Erythema Nodosum/4628892.jpg",
+    "images/Erythema Nodosum/5409791.jpg",
+    "images/Erythema Nodosum/612608.jpg",
+    "images/Erythema Nodosum/7801153.jpg",
+    "images/Erythema Nodosum/8605691.jpg"
+  ],
+  "Erythrocytes": [
+    "images/Erythrocytes/1.jpg",
+    "images/Erythrocytes/2.jpg",
+    "images/Erythrocytes/3.jpg"
+  ],
+  "Essential thrombocythemia": [
+    "images/Essential thrombocythemia/1.jpg",
+    "images/Essential thrombocythemia/2.jpg",
+    "images/Essential thrombocythemia/3.jpg"
+  ],
+  "Hairy Cell Leukemia": [
+    "images/Hairy Cell Leukemia/1.jpg",
+    "images/Hairy Cell Leukemia/2.jpg",
+    "images/Hairy Cell Leukemia/3.jpg",
+    "images/Hairy Cell Leukemia/4.jpg",
+    "images/Hairy Cell Leukemia/5.jpg",
+    "images/Hairy Cell Leukemia/6.jpg"
+  ],
+  "Hand Food Mouth Disease (HFMD)": [
+    "images/Hand Food Mouth Disease (HFMD)/1918374.jpg",
+    "images/Hand Food Mouth Disease (HFMD)/2096957.jpg",
+    "images/Hand Food Mouth Disease (HFMD)/2233123.jpg",
+    "images/Hand Food Mouth Disease (HFMD)/5501340.jpg",
+    "images/Hand Food Mouth Disease (HFMD)/639743.jpg",
+    "images/Hand Food Mouth Disease (HFMD)/7038911.jpg",
+    "images/Hand Food Mouth Disease (HFMD)/7548339.jpg",
+    "images/Hand Food Mouth Disease (HFMD)/7935028.jpg",
+    "images/Hand Food Mouth Disease (HFMD)/8362140.jpg"
+  ],
+  "Heinz bodies": [
+    "images/Heinz bodies/1.jpg",
+    "images/Heinz bodies/2.jpg",
+    "images/Heinz bodies/3.jpg",
+    "images/Heinz bodies/4.jpg",
+    "images/Heinz bodies/5.jpg"
+  ],
+  "Herpes Simplex Virus (HSV)": [
+    "images/Herpes Simplex Virus (HSV)/176721.jpg",
+    "images/Herpes Simplex Virus (HSV)/248988.jpg",
+    "images/Herpes Simplex Virus (HSV)/277068.jpg",
+    "images/Herpes Simplex Virus (HSV)/2837065.jpg",
+    "images/Herpes Simplex Virus (HSV)/2850295.jpg",
+    "images/Herpes Simplex Virus (HSV)/324177.jpg",
+    "images/Herpes Simplex Virus (HSV)/3628861.jpg",
+    "images/Herpes Simplex Virus (HSV)/429945.jpg"
+  ],
+  "Hidradenitis Suppurativa (HS)": [
+    "images/Hidradenitis Suppurativa (HS)/2107939.jpg",
+    "images/Hidradenitis Suppurativa (HS)/3724292.jpg",
+    "images/Hidradenitis Suppurativa (HS)/3724486.jpg",
+    "images/Hidradenitis Suppurativa (HS)/4032732.jpg",
+    "images/Hidradenitis Suppurativa (HS)/449293.jpg",
+    "images/Hidradenitis Suppurativa (HS)/449385.jpg",
+    "images/Hidradenitis Suppurativa (HS)/5351423.jpg"
+  ],
+  "Howell-Jolly bodies": [
+    "images/Howell-Jolly bodies/1.jpg",
+    "images/Howell-Jolly bodies/2.jpg",
+    "images/Howell-Jolly bodies/3.jpg",
+    "images/Howell-Jolly bodies/4.jpg",
+    "images/Howell-Jolly bodies/5.jpg"
+  ],
+  "Human Papilloma Virus (HPV)": [
+    "images/Human Papilloma Virus (HPV)/2837809.jpg",
+    "images/Human Papilloma Virus (HPV)/2884656.jpg",
+    "images/Human Papilloma Virus (HPV)/3058184.jpg",
+    "images/Human Papilloma Virus (HPV)/358335.jpg",
+    "images/Human Papilloma Virus (HPV)/423614.jpg",
+    "images/Human Papilloma Virus (HPV)/423805.jpg",
+    "images/Human Papilloma Virus (HPV)/5039542.jpg",
+    "images/Human Papilloma Virus (HPV)/5488188.jpg",
+    "images/Human Papilloma Virus (HPV)/5488445.jpg"
+  ],
+  "Ichthyosis Vulgaris": [
+    "images/Ichthyosis Vulgaris/3017471.jpg",
+    "images/Ichthyosis Vulgaris/4651596.jpg",
+    "images/Ichthyosis Vulgaris/4651675.jpg",
+    "images/Ichthyosis Vulgaris/4651897.jpg",
+    "images/Ichthyosis Vulgaris/657795.jpg",
+    "images/Ichthyosis Vulgaris/657992.jpg",
+    "images/Ichthyosis Vulgaris/6762930.jpg"
+  ],
+  "Impetigo": [
+    "images/Impetigo/188415.jpg",
+    "images/Impetigo/3432512.jpg",
+    "images/Impetigo/3433472.jpg",
+    "images/Impetigo/4983657.jpg",
+    "images/Impetigo/5301859.jpg",
+    "images/Impetigo/557633.jpg"
+  ],
+  "Iron Deficiency Anemia": [
+    "images/Iron Deficiency Anemia/1.jpg",
+    "images/Iron Deficiency Anemia/2.jpg",
+    "images/Iron Deficiency Anemia/3.jpg",
+    "images/Iron Deficiency Anemia/4.jpg",
+    "images/Iron Deficiency Anemia/5.jpg"
+  ],
+  "KeratinPearl (SCC)": [
+    "images/KeratinPearl (SCC)/1.jpg"
+  ],
+  "Langerhans cell histiocytosis": [
+    "images/Langerhans cell histiocytosis/1.jpg",
+    "images/Langerhans cell histiocytosis/2.jpg",
+    "images/Langerhans cell histiocytosis/3.jpg",
+    "images/Langerhans cell histiocytosis/4.jpg",
+    "images/Langerhans cell histiocytosis/417487.jpg",
+    "images/Langerhans cell histiocytosis/417661.jpg",
+    "images/Langerhans cell histiocytosis/417711.jpg",
+    "images/Langerhans cell histiocytosis/417872.jpg",
+    "images/Langerhans cell histiocytosis/418096.jpg",
+    "images/Langerhans cell histiocytosis/648627.jpg"
+  ],
+  "Leishmaniasis": [
+    "images/Leishmaniasis/1923723.jpg",
+    "images/Leishmaniasis/2063863.jpg",
+    "images/Leishmaniasis/230026.jpg",
+    "images/Leishmaniasis/267900.jpg",
+    "images/Leishmaniasis/268287.jpg",
+    "images/Leishmaniasis/4136142.jpg",
+    "images/Leishmaniasis/5859770.jpg"
+  ],
+  "Leprosy": [
+    "images/Leprosy/10785223.jpg",
+    "images/Leprosy/10785281.jpg",
+    "images/Leprosy/1810642.jpg",
+    "images/Leprosy/2676479.jpg",
+    "images/Leprosy/304284.jpg",
+    "images/Leprosy/7226209.jpg",
+    "images/Leprosy/7708142.jpg",
+    "images/Leprosy/8516864.jpg"
+  ],
+  "Lichen Planus": [
+    "images/Lichen Planus/1.jpg",
+    "images/Lichen Planus/2.jpg",
+    "images/Lichen Planus/21091.jpg",
+    "images/Lichen Planus/21134.jpg",
+    "images/Lichen Planus/21187.jpg",
+    "images/Lichen Planus/239543.jpg",
+    "images/Lichen Planus/2727855.jpg",
+    "images/Lichen Planus/3.jpg",
+    "images/Lichen Planus/303516.jpg",
+    "images/Lichen Planus/3655874.jpg",
+    "images/Lichen Planus/682568.jpg",
+    "images/Lichen Planus/682651.jpg",
+    "images/Lichen Planus/683230.jpg",
+    "images/Lichen Planus/683264.jpg",
+    "images/Lichen Planus/684835.jpg"
+  ],
+  "Lymphocytes": [
+    "images/Lymphocytes/1.jpg",
+    "images/Lymphocytes/2.jpg",
+    "images/Lymphocytes/3.jpg",
+    "images/Lymphocytes/4.jpg",
+    "images/Lymphocytes/5.jpg",
+    "images/Lymphocytes/6.jpg"
+  ],
+  "Mast Cell (Mastocytes)": [
+    "images/Mast Cell (Mastocytes)/1.jpg",
+    "images/Mast Cell (Mastocytes)/2.jpg",
+    "images/Mast Cell (Mastocytes)/3.jpg",
+    "images/Mast Cell (Mastocytes)/4.jpg",
+    "images/Mast Cell (Mastocytes)/5.jpg"
+  ],
+  "Mastocytosis Uticaria Pigmentosa (UP)": [
+    "images/Mastocytosis Uticaria Pigmentosa (UP)/1315207.jpg",
+    "images/Mastocytosis Uticaria Pigmentosa (UP)/1316421.jpg",
+    "images/Mastocytosis Uticaria Pigmentosa (UP)/1318044.jpg",
+    "images/Mastocytosis Uticaria Pigmentosa (UP)/1319936.jpg",
+    "images/Mastocytosis Uticaria Pigmentosa (UP)/1322048.jpg",
+    "images/Mastocytosis Uticaria Pigmentosa (UP)/174492.jpg",
+    "images/Mastocytosis Uticaria Pigmentosa (UP)/2663241.jpg",
+    "images/Mastocytosis Uticaria Pigmentosa (UP)/801499.jpg",
+    "images/Mastocytosis Uticaria Pigmentosa (UP)/881587.jpg"
+  ],
+  "Measles": [
+    "images/Measles/1506750.jpg",
+    "images/Measles/1506780.jpg",
+    "images/Measles/267750.jpg",
+    "images/Measles/270723.jpg",
+    "images/Measles/4883568.jpg",
+    "images/Measles/4883955.jpg",
+    "images/Measles/7230580.jpg"
+  ],
+  "Megaloblastic anemia": [
+    "images/Megaloblastic anemia/1.jpg",
+    "images/Megaloblastic anemia/2.jpg",
+    "images/Megaloblastic anemia/3.jpg",
+    "images/Megaloblastic anemia/4.jpg",
+    "images/Megaloblastic anemia/5.jpg"
+  ],
+  "Melanoma": [
+    "images/Melanoma/162012.jpg",
+    "images/Melanoma/207449.jpg",
+    "images/Melanoma/732416.jpg",
+    "images/Melanoma/733445.jpg"
+  ],
+  "Molluscum": [
+    "images/Molluscum/3688969.jpg",
+    "images/Molluscum/420795.jpg",
+    "images/Molluscum/420956.jpg",
+    "images/Molluscum/447331.jpg",
+    "images/Molluscum/514304.jpg",
+    "images/Molluscum/515292.jpg",
+    "images/Molluscum/517376.jpg",
+    "images/Molluscum/76426.jpg"
+  ],
+  "Monocytes": [
+    "images/Monocytes/1.jpg",
+    "images/Monocytes/2.jpg",
+    "images/Monocytes/3.jpg",
+    "images/Monocytes/4.jpg",
+    "images/Monocytes/5.jpg",
+    "images/Monocytes/6.jpg"
+  ],
+  "Mpox": [
+    "images/Mpox/10514578.jpg",
+    "images/Mpox/10514693.jpg",
+    "images/Mpox/10514800.jpg",
+    "images/Mpox/10514844.jpg",
+    "images/Mpox/10519487.jpg",
+    "images/Mpox/10519750.jpg",
+    "images/Mpox/10519921.jpg"
+  ],
+  "Multinucleated Giant Cells (HSV + VZV)": [
+    "images/Multinucleated Giant Cells (HSV + VZV)/1.jpg",
+    "images/Multinucleated Giant Cells (HSV + VZV)/2.jpg"
+  ],
+  "Multiple Myeloma": [
+    "images/Multiple Myeloma/1.jpg",
+    "images/Multiple Myeloma/2.jpg",
+    "images/Multiple Myeloma/3.jpg",
+    "images/Multiple Myeloma/4.jpg",
+    "images/Multiple Myeloma/5.jpg",
+    "images/Multiple Myeloma/6.jpg"
+  ],
+  "Necrotizing Fasciitis": [
+    "images/Necrotizing Fasciitis/234019.jpg",
+    "images/Necrotizing Fasciitis/3427548.jpg",
+    "images/Necrotizing Fasciitis/3525417.jpg",
+    "images/Necrotizing Fasciitis/8588073.jpg",
+    "images/Necrotizing Fasciitis/89164.jpg"
+  ],
+  "Neutrophils": [
+    "images/Neutrophils/1.jpg",
+    "images/Neutrophils/2.jpg",
+    "images/Neutrophils/3.jpg",
+    "images/Neutrophils/4.jpg",
+    "images/Neutrophils/5.jpg",
+    "images/Neutrophils/6.jpg"
+  ],
+  "Pediculosis": [
+    "images/Pediculosis/3442619.jpg",
+    "images/Pediculosis/3442663.jpg",
+    "images/Pediculosis/4136639.jpg",
+    "images/Pediculosis/5094335.jpg"
+  ],
+  "Pemphigus Vulgaris": [
+    "images/Pemphigus Vulgaris/1.jpg",
+    "images/Pemphigus Vulgaris/174456.jpg",
+    "images/Pemphigus Vulgaris/2.jpg",
+    "images/Pemphigus Vulgaris/3.jpg",
+    "images/Pemphigus Vulgaris/4.jpg",
+    "images/Pemphigus Vulgaris/444828.jpg",
+    "images/Pemphigus Vulgaris/5.jpg",
+    "images/Pemphigus Vulgaris/758215.jpg",
+    "images/Pemphigus Vulgaris/758273.jpg",
+    "images/Pemphigus Vulgaris/759030.jpg",
+    "images/Pemphigus Vulgaris/761635.jpg",
+    "images/Pemphigus Vulgaris/765947.jpg"
+  ],
+  "Plasma Cell": [
+    "images/Plasma Cell/1.jpg",
+    "images/Plasma Cell/2.jpg",
+    "images/Plasma Cell/3.jpg",
+    "images/Plasma Cell/4.jpg",
+    "images/Plasma Cell/5.jpg"
+  ],
+  "Plasma Cell Dyscrasias": [
+    "images/Plasma Cell Dyscrasias/1.jpg",
+    "images/Plasma Cell Dyscrasias/2.jpg",
+    "images/Plasma Cell Dyscrasias/3.jpg",
+    "images/Plasma Cell Dyscrasias/4.jpg",
+    "images/Plasma Cell Dyscrasias/5.jpg"
+  ],
+  "Polycythemia vera (erythromelalgia)": [
+    "images/Polycythemia vera (erythromelalgia)/1.jpg",
+    "images/Polycythemia vera (erythromelalgia)/2.jpg",
+    "images/Polycythemia vera (erythromelalgia)/3.jpg"
+  ],
+  "Polymorphous Light Eruption (PMLE)": [
+    "images/Polymorphous Light Eruption (PMLE)/2865564.jpg",
+    "images/Polymorphous Light Eruption (PMLE)/3740515.jpg",
+    "images/Polymorphous Light Eruption (PMLE)/6342.jpg",
+    "images/Polymorphous Light Eruption (PMLE)/6438300.jpg",
+    "images/Polymorphous Light Eruption (PMLE)/6438391.jpg",
+    "images/Polymorphous Light Eruption (PMLE)/6438590.jpg",
+    "images/Polymorphous Light Eruption (PMLE)/6439394.jpg",
+    "images/Polymorphous Light Eruption (PMLE)/766208.jpg",
+    "images/Polymorphous Light Eruption (PMLE)/7674152.jpg"
+  ],
+  "Porphyria cutanea tarda": [
+    "images/Porphyria cutanea tarda/1.jpg",
+    "images/Porphyria cutanea tarda/2.jpg",
+    "images/Porphyria cutanea tarda/3.jpg"
+  ],
+  "Primary Central Nervous System (CNS) Lymphoma": [
+    "images/Primary Central Nervous System (CNS) Lymphoma/1.jpg",
+    "images/Primary Central Nervous System (CNS) Lymphoma/2.jpg",
+    "images/Primary Central Nervous System (CNS) Lymphoma/3.jpg",
+    "images/Primary Central Nervous System (CNS) Lymphoma/4.jpg"
+  ],
+  "Pseudo-Pelger-Hu\u00ebt anomaly": [
+    "images/Pseudo-Pelger-Hu\u00ebt anomaly/1.jpg",
+    "images/Pseudo-Pelger-Hu\u00ebt anomaly/2.jpg",
+    "images/Pseudo-Pelger-Hu\u00ebt anomaly/3.jpg",
+    "images/Pseudo-Pelger-Hu\u00ebt anomaly/4.jpg"
+  ],
+  "Pseudohorn Cysts (SK)": [
+    "images/Pseudohorn Cysts (SK)/1.jpg",
+    "images/Pseudohorn Cysts (SK)/2.jpg",
+    "images/Pseudohorn Cysts (SK)/3.jpg",
+    "images/Pseudohorn Cysts (SK)/4.jpg"
+  ],
+  "Psoriasis": [
+    "images/Psoriasis/1.jpg",
+    "images/Psoriasis/10145530.jpg",
+    "images/Psoriasis/1180928.jpg",
+    "images/Psoriasis/2.jpg",
+    "images/Psoriasis/3.jpg",
+    "images/Psoriasis/3018431.jpg",
+    "images/Psoriasis/4.jpg",
+    "images/Psoriasis/496949.jpg",
+    "images/Psoriasis/498315.jpg",
+    "images/Psoriasis/5.jpg",
+    "images/Psoriasis/5184399.jpg",
+    "images/Psoriasis/9674605.jpg",
+    "images/Psoriasis/9674751.jpg",
+    "images/Psoriasis/9827027.jpg"
+  ],
+  "Reed Sternberg Cell (Hodgkin Lymphoma)": [
+    "images/Reed Sternberg Cell (Hodgkin Lymphoma)/1.jpg",
+    "images/Reed Sternberg Cell (Hodgkin Lymphoma)/2.jpg",
+    "images/Reed Sternberg Cell (Hodgkin Lymphoma)/3.jpeg",
+    "images/Reed Sternberg Cell (Hodgkin Lymphoma)/4.jpg",
+    "images/Reed Sternberg Cell (Hodgkin Lymphoma)/5.jpg",
+    "images/Reed Sternberg Cell (Hodgkin Lymphoma)/6.jpg",
+    "images/Reed Sternberg Cell (Hodgkin Lymphoma)/7.jpg"
+  ],
+  "Rocky Mountain Spotted Fever (RMSF)": [
+    "images/Rocky Mountain Spotted Fever (RMSF)/2754972.jpg",
+    "images/Rocky Mountain Spotted Fever (RMSF)/4139032.jpg",
+    "images/Rocky Mountain Spotted Fever (RMSF)/4139072.jpg",
+    "images/Rocky Mountain Spotted Fever (RMSF)/4720483.jpg",
+    "images/Rocky Mountain Spotted Fever (RMSF)/5151900.jpg",
+    "images/Rocky Mountain Spotted Fever (RMSF)/7633741.jpg",
+    "images/Rocky Mountain Spotted Fever (RMSF)/8590534.jpg"
+  ],
+  "Rosacea": [
+    "images/Rosacea/114944.jpg",
+    "images/Rosacea/177955.jpg",
+    "images/Rosacea/3287352.jpg",
+    "images/Rosacea/3289156.jpg",
+    "images/Rosacea/521827.jpg",
+    "images/Rosacea/522438.jpg",
+    "images/Rosacea/585948.jpg",
+    "images/Rosacea/585989.jpg",
+    "images/Rosacea/6615056.jpg"
+  ],
+  "Roseola": [
+    "images/Roseola/1507740.jpg",
+    "images/Roseola/5403427.jpg",
+    "images/Roseola/5509538.jpg",
+    "images/Roseola/5509596.jpg",
+    "images/Roseola/5509644.jpg"
+  ],
+  "Rubella": [
+    "images/Rubella/1896924.jpg",
+    "images/Rubella/1897041.jpg",
+    "images/Rubella/1897166.jpg",
+    "images/Rubella/4886528.jpg",
+    "images/Rubella/7731576.jpg",
+    "images/Rubella/7731612.jpg",
+    "images/Rubella/915768.jpg"
+  ],
+  "Scabies": [
+    "images/Scabies/331840.jpg",
+    "images/Scabies/3681756.jpg",
+    "images/Scabies/3684351.jpg",
+    "images/Scabies/391192.jpg",
+    "images/Scabies/404057.jpg"
+  ],
+  "Scarlet Fever": [
+    "images/Scarlet Fever/1798400.jpg",
+    "images/Scarlet Fever/1798847.jpg",
+    "images/Scarlet Fever/1799168.jpg",
+    "images/Scarlet Fever/2414461.jpg",
+    "images/Scarlet Fever/4701789.jpg",
+    "images/Scarlet Fever/4885353.jpg",
+    "images/Scarlet Fever/838812.jpg"
+  ],
+  "Schistocytes (\u201chelmet\u201d cells)": [
+    "images/Schistocytes (\u201chelmet\u201d cells)/1.jpg",
+    "images/Schistocytes (\u201chelmet\u201d cells)/2.jpg",
+    "images/Schistocytes (\u201chelmet\u201d cells)/3.jpg",
+    "images/Schistocytes (\u201chelmet\u201d cells)/4.jpg",
+    "images/Schistocytes (\u201chelmet\u201d cells)/5.jpg"
+  ],
+  "Seborrheic Keratosis": [
+    "images/Seborrheic Keratosis/2328487.jpg",
+    "images/Seborrheic Keratosis/2653300.jpg",
+    "images/Seborrheic Keratosis/323909.jpg",
+    "images/Seborrheic Keratosis/324608.jpg",
+    "images/Seborrheic Keratosis/661930.jpg",
+    "images/Seborrheic Keratosis/67971.jpg",
+    "images/Seborrheic Keratosis/68074.jpg",
+    "images/Seborrheic Keratosis/76731.jpg",
+    "images/Seborrheic Keratosis/835262.jpg"
+  ],
+  "Sickle cells": [
+    "images/Sickle cells/1.jpg",
+    "images/Sickle cells/2.jpg",
+    "images/Sickle cells/3.jpg",
+    "images/Sickle cells/4.jpg",
+    "images/Sickle cells/5.jpg"
+  ],
+  "Sideroblastic Anemia": [
+    "images/Sideroblastic Anemia/1.jpg",
+    "images/Sideroblastic Anemia/2.jpg",
+    "images/Sideroblastic Anemia/3.jpg",
+    "images/Sideroblastic Anemia/4.jpg",
+    "images/Sideroblastic Anemia/5.jpg"
+  ],
+  "Spherocytes": [
+    "images/Spherocytes/1.jpg",
+    "images/Spherocytes/2.jpg",
+    "images/Spherocytes/3.jpg",
+    "images/Spherocytes/4.jpg",
+    "images/Spherocytes/5.jpg"
+  ],
+  "Squamous Cell Carcinoma (SCC)": [
+    "images/Squamous Cell Carcinoma (SCC)/1049096.jpg",
+    "images/Squamous Cell Carcinoma (SCC)/161783.jpg",
+    "images/Squamous Cell Carcinoma (SCC)/3678207.jpg",
+    "images/Squamous Cell Carcinoma (SCC)/3680840.jpg",
+    "images/Squamous Cell Carcinoma (SCC)/3680923.jpg",
+    "images/Squamous Cell Carcinoma (SCC)/432782.jpg",
+    "images/Squamous Cell Carcinoma (SCC)/844848.jpg"
+  ],
+  "Staphylococcal Scalded Skin Syndrome (SSSS)": [
+    "images/Staphylococcal Scalded Skin Syndrome (SSSS)/127040.jpg",
+    "images/Staphylococcal Scalded Skin Syndrome (SSSS)/2472090.jpg",
+    "images/Staphylococcal Scalded Skin Syndrome (SSSS)/5390400.jpg",
+    "images/Staphylococcal Scalded Skin Syndrome (SSSS)/5980003.jpg"
+  ],
+  "Stevens-Johnson syndrome (SJS) and Toxic Epidermal Necrolysis (TEN)": [
+    "images/Stevens-Johnson syndrome (SJS) and Toxic Epidermal Necrolysis (TEN)/132144.jpg",
+    "images/Stevens-Johnson syndrome (SJS) and Toxic Epidermal Necrolysis (TEN)/1398629.jpg",
+    "images/Stevens-Johnson syndrome (SJS) and Toxic Epidermal Necrolysis (TEN)/1518457.jpg",
+    "images/Stevens-Johnson syndrome (SJS) and Toxic Epidermal Necrolysis (TEN)/3045632.jpg",
+    "images/Stevens-Johnson syndrome (SJS) and Toxic Epidermal Necrolysis (TEN)/3045701.jpg",
+    "images/Stevens-Johnson syndrome (SJS) and Toxic Epidermal Necrolysis (TEN)/3048817.jpg",
+    "images/Stevens-Johnson syndrome (SJS) and Toxic Epidermal Necrolysis (TEN)/335677.jpg",
+    "images/Stevens-Johnson syndrome (SJS) and Toxic Epidermal Necrolysis (TEN)/4564188.jpg",
+    "images/Stevens-Johnson syndrome (SJS) and Toxic Epidermal Necrolysis (TEN)/4564273.jpg",
+    "images/Stevens-Johnson syndrome (SJS) and Toxic Epidermal Necrolysis (TEN)/609344.jpg",
+    "images/Stevens-Johnson syndrome (SJS) and Toxic Epidermal Necrolysis (TEN)/616021.jpg"
+  ],
+  "S\u00e9zary Cell": [
+    "images/S\u00e9zary Cell/1.jpg",
+    "images/S\u00e9zary Cell/2.jpg",
+    "images/S\u00e9zary Cell/3.jpg",
+    "images/S\u00e9zary Cell/4.jpg"
+  ],
+  "Target cells": [
+    "images/Target cells/1.jpg",
+    "images/Target cells/2.jpg",
+    "images/Target cells/3.jpg",
+    "images/Target cells/4.jpg",
+    "images/Target cells/5.jpg"
+  ],
+  "Tinea Capitis": [
+    "images/Tinea Capitis/1700096.jpg",
+    "images/Tinea Capitis/2012707.jpg",
+    "images/Tinea Capitis/303633.jpg",
+    "images/Tinea Capitis/406002.jpg",
+    "images/Tinea Capitis/853126.jpg",
+    "images/Tinea Capitis/853703.jpg"
+  ],
+  "Tinea Versicolor": [
+    "images/Tinea Versicolor/5525069.jpg",
+    "images/Tinea Versicolor/56077.jpg",
+    "images/Tinea Versicolor/6043391.jpg",
+    "images/Tinea Versicolor/6676496.jpg",
+    "images/Tinea Versicolor/7723881.jpg",
+    "images/Tinea Versicolor/797808.jpg"
+  ],
+  "Urticaria": [
+    "images/Urticaria/1251754.jpg",
+    "images/Urticaria/174617.jpg",
+    "images/Urticaria/29375.jpg",
+    "images/Urticaria/320576.jpg",
+    "images/Urticaria/375290.jpg",
+    "images/Urticaria/375759.jpg",
+    "images/Urticaria/376064.jpg",
+    "images/Urticaria/376181.jpg",
+    "images/Urticaria/6888012.jpg",
+    "images/Urticaria/6888075.jpg",
+    "images/Urticaria/7814846.jpg"
+  ],
+  "Varicella Zoster": [
+    "images/Varicella Zoster/117695.jpg",
+    "images/Varicella Zoster/120767.jpg",
+    "images/Varicella Zoster/128116.jpg",
+    "images/Varicella Zoster/2351168.jpg",
+    "images/Varicella Zoster/2826560.jpg",
+    "images/Varicella Zoster/2836682.jpg",
+    "images/Varicella Zoster/2942364.jpg",
+    "images/Varicella Zoster/645440.jpg"
+  ]
+}
