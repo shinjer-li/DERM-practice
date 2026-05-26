@@ -29,9 +29,10 @@
     }
 
     .practice-progress {
-      font-size: 0.8rem;
+      font-size: 1rem;
       color: var(--text-muted);
       margin-left: auto;
+      font-weight: 500;
     }
 
     .progress-bar-wrap {
@@ -113,7 +114,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      min-height: 72px;
+      min-height: 48px;
     }
 
     .answer-left {
@@ -176,7 +177,14 @@
     .nav-btn:hover { background: var(--bg); color: var(--text-primary); }
     .nav-btn:disabled { opacity: 0.3; cursor: default; }
     .nav-btn:disabled:hover { background: var(--surface); color: var(--text-secondary); }
-
+    #btn-prev, #btn-next {
+      border: none;
+      background: transparent;
+    }
+    #btn-prev:hover, #btn-next:hover {
+      background: transparent;
+      color: var(--text-primary);
+    }
     .reveal-btn {
       padding: 0 22px;
       width: auto;
@@ -230,7 +238,7 @@
     }
     .lightbox-close {
       position: absolute;
-      top: -12px; right: -12px;
+      top: -15px; right: -15px;
       width: 36px; height: 36px;
       border-radius: 50%;
       background: rgba(255,255,255,0.1);
@@ -411,7 +419,7 @@
   <a href="index.html" class="btn btn-ghost btn-sm" style="padding:8px 14px; color:var(--text-secondary)">
     <i class="ti ti-home" aria-hidden="true"></i>
   </a>
-  <div style="position:absolute;left:50%;transform:translateX(-50%);font-family:var(--serif);font-size:1.25rem;color:var(--text-primary)">
+  <div style="position:absolute;left:50%;transform:translateX(-50%);font-weight:bold;font-family:var(--serif);font-size:1.25rem;color:var(--text-primary)">
     Shinjer's <span style="color:var(--accent)">Practice</span>
   </div>
   <div class="practice-scope" id="scope-label">—</div>
@@ -433,16 +441,11 @@
     </div>
 
     <!-- Answer zone -->
-    <div class="answer-zone">
-      <div class="answer-left">
-        <div class="answer-label hidden" id="answer-label">—</div>
-        <!-- <div class="answer-hint" id="answer-hint">Press <span class="kbd">Space</span> or <span class="kbd">↵</span> to reveal</div> -->
-      </div>
-      <div class="answer-right">
-        <button class="btn btn-sm" id="more-btn" onclick="toggleMorePanel()" title="Other images of this condition" aria-label="View more images">
-          <i class="ti ti-layout-grid" aria-hidden="true"></i>
-        </button>
-      </div>
+    <div class="answer-zone" style="justify-content:space-between; align-items:center;">
+      <div class="answer-label hidden" id="answer-label">—</div>
+      <button class="btn btn-sm" id="more-btn" onclick="toggleMorePanel()" title="Other images of this condition" aria-label="View more images" style="margin-left:auto; display:flex; align-items:center; gap:6px;">
+        <i class="ti ti-layout-grid" aria-hidden="true"></i> More images
+      </button>
     </div>
   </div>
 
