@@ -113,7 +113,31 @@
       color: white;
       border-color: var(--accent);
     }
-
+    .group-practice-btn {
+      font-size: 0.72rem;
+      padding: 2px 7px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background 0.12s, color 0.12s;
+      font-family: var(--sans);
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      white-space: nowrap;
+    }
+    .group-practice-btn:hover {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+    .disease-chip.selected {
+      background: var(--accent-light);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
     /* ── Groups inside a card ── */
     .system-body {
       padding: 16px 20px;
@@ -279,6 +303,9 @@
         <button class="btn btn-primary" onclick="openPracticeModal('all')">
           <i class="ti ti-player-play" aria-hidden="true"></i> Practice all
         </button>
+        <button class="btn" id="multiselect-toggle-btn" onclick="toggleMultiSelectMode()">
+          <i class="ti ti-checks" aria-hidden="true"></i> Select multiple
+        </button>
         <a href="browse.html" class="btn">
           <i class="ti ti-photo-search" aria-hidden="true"></i> Browse images
         </a>
@@ -326,9 +353,10 @@
 <script src="catalog.js"></script>
 <script src="app.js"></script>
 <script>
-  let currentScope = 'all'; // 'all', a system id, or a disease name
+  let currentScope = 'all';
+  let selectedDiseases = new Set(); // for multi-select mode
+  let multiSelectMode = false;
 
-  // ── Render catalog ───────────────────────────────────────────
   async function init() {
     await loadManifest();
     renderSystems();
@@ -346,16 +374,30 @@
     }
 
     container.appendChild(grid);
+
+    // Add multi-select bar
+    const bar = document.createElement('div');
+    bar.id = 'multiselect-bar';
+    bar.style.cssText = `display:none;position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+      background:var(--surface);border:1px solid var(--border-mid);border-radius:var(--radius-lg);
+      padding:12px 20px;display:none;align-items:center;gap:12px;box-shadow:var(--shadow);z-index:100;`;
+    bar.innerHTML = `
+      <span id="multiselect-count" style="font-size:0.85rem;color:var(--text-secondary)">0 selected</span>
+      <button class="btn btn-sm" onclick="clearMultiSelect()">Clear</button>
+      <button class="btn btn-sm btn-primary" onclick="practiceMultiSelect()">
+        <i class="ti ti-player-play"></i> Practice selected
+      </button>
+    `;
+    document.body.appendChild(bar);
   }
 
   function buildSystemCard(system) {
     const card = document.createElement('div');
     card.className = 'system-card';
-
     const totalImages = countSystemImages(system);
 
     card.innerHTML = `
-      <div class="system-header" onclick="openPracticeModal('${system.id}')">
+      <div class="system-header" onclick="if(multiSelectMode){ event.stopPropagation(); toggleSystem('${system.id}'); } else { openPracticeModal('${system.id}'); }">
         <div class="system-header-left">
           <div class="system-icon"><i class="ti ${system.icon}" aria-hidden="true"></i></div>
           <div>
@@ -368,53 +410,157 @@
         </button>
       </div>
       <div class="system-body">
-        ${system.groups.map(g => buildGroup(g)).join('')}
+        ${system.groups.map(g => buildGroup(g, system)).join('')}
       </div>
     `;
-
     return card;
   }
 
-  function buildGroup(group) {
+  function buildGroup(group, system) {
+    const groupImages = group.diseases.reduce((n, d) => n + getImagesForDisease(d).length, 0);
+    const groupId = `group:${system.id}:${encodeURIComponent(group.label)}`;
+    const hasImages = groupImages > 0;
+
     const chips = group.diseases.map(d => {
       const imgs = getImagesForDisease(d);
-      const hasImages = imgs.length > 0;
-      const count = hasImages ? ` <span style="color:var(--text-muted);font-size:0.72rem">${imgs.length}</span>` : '';
-      return `<button class="disease-chip${hasImages ? '' : ' no-images'}"
-        ${hasImages ? `onclick="openPracticeModal('disease:${escAttr(d)}')"` : ''}
-        title="${hasImages ? `${imgs.length} image${imgs.length !== 1 ? 's' : ''}` : 'No images loaded'}"
-      >${d}${count}</button>`;
+      const hasImg = imgs.length > 0;
+      const count = hasImg ? ` <span style="color:var(--text-muted);font-size:0.72rem">${imgs.length}</span>` : '';
+      const isSelected = selectedDiseases.has(d);
+      return `<button class="disease-chip${hasImg ? '' : ' no-images'}${isSelected ? ' selected' : ''}"
+        ${hasImg ? `onclick="handleChipClick(event, '${escAttr(d)}')"` : ''}
+      title="${hasImg ? `${imgs.length} image${imgs.length !== 1 ? 's' : ''}` : 'No images loaded'}"
+        >${d}${count}</button>`;
     }).join('');
 
     return `
       <div class="group-block">
-        <div class="group-label">${group.label}</div>
+        <div class="group-label" style="display:flex;align-items:center;justify-content:space-between;">
+          <span class="group-label-text" style="cursor:pointer;"
+            onclick="if(multiSelectMode){ event.stopPropagation(); toggleGroup('${escAttr(system.id)}','${escAttr(group.label)}'); }"
+            title="Click to select all in group">${group.label}</span>
+          ${hasImages ? `<button class="group-practice-btn" onclick="if(multiSelectMode){ event.stopPropagation(); toggleGroup('${escAttr(system.id)}','${escAttr(group.label)}'); } else { openPracticeModal('${escAttr(groupId)}'); }" title="${groupImages} images">
+            <i class="ti ti-player-play" style="font-size:0.7rem"></i> ${groupImages}
+          </button>` : `<span style="font-size:0.7rem;color:var(--text-muted)">${groupImages}</span>`}
+        </div>
         <div class="disease-chips">${chips}</div>
       </div>
     `;
   }
 
+  // Long-press or ctrl+click for multi-select; regular click for browse
+  function handleChipClick(e, disease) {
+    if (multiSelectMode) {
+      e.preventDefault();
+      toggleDisease(disease);
+    } else {
+      openPracticeModal('disease:' + disease);
+    }
+  }
+
+  function toggleMultiSelectMode() {
+    multiSelectMode = !multiSelectMode;
+    if (!multiSelectMode) {
+      clearMultiSelect(); // also clears selections and hides the bar
+    }
+    const btn = document.getElementById('multiselect-toggle-btn');
+    if (multiSelectMode) {
+      btn.classList.add('btn-primary');
+      btn.innerHTML = '<i class="ti ti-x" aria-hidden="true"></i> Cancel selection';
+    } else {
+      btn.classList.remove('btn-primary');
+      btn.innerHTML = '<i class="ti ti-checks" aria-hidden="true"></i> Select multiple';
+    }
+  }
+
+  function toggleGroup(systemId, groupLabel) {
+    const sys = CATALOG.find(s => s.id === systemId);
+    if (!sys) return;
+    const group = sys.groups.find(g => g.label === groupLabel);
+    if (!group) return;
+    const diseases = group.diseases.filter(d => getImagesForDisease(d).length > 0);
+    const allSelected = diseases.every(d => selectedDiseases.has(d));
+    diseases.forEach(d => allSelected ? selectedDiseases.delete(d) : selectedDiseases.add(d));
+    multiSelectMode = selectedDiseases.size > 0;
+    updateMultiSelectUI();
+  }
+
+  function toggleSystem(systemId) {
+    const sys = CATALOG.find(s => s.id === systemId);
+    if (!sys) return;
+    const diseases = sys.groups.flatMap(g => g.diseases).filter(d => getImagesForDisease(d).length > 0);
+    const allSelected = diseases.every(d => selectedDiseases.has(d));
+    diseases.forEach(d => allSelected ? selectedDiseases.delete(d) : selectedDiseases.add(d));
+    multiSelectMode = selectedDiseases.size > 0;
+    updateMultiSelectUI();
+  }
+
+  function updateMultiSelectUI() {
+    const bar = document.getElementById('multiselect-bar');
+    if (!bar) return;
+    if (selectedDiseases.size > 0) {
+      bar.style.display = 'flex';
+      document.getElementById('multiselect-count').textContent =
+        `${selectedDiseases.size} patholog${selectedDiseases.size === 1 ? 'y' : 'ies'} selected`;
+    } else {
+      bar.style.display = 'none';
+      multiSelectMode = false;
+    }
+    // Update chip styles
+    document.querySelectorAll('.disease-chip').forEach(chip => {
+      const name = chip.textContent.replace(/\s*\d+\s*$/, '').trim();
+      if (selectedDiseases.has(name)) {
+        chip.classList.add('selected');
+      } else {
+        chip.classList.remove('selected');
+      }
+    });
+  }
+
+  function clearMultiSelect() {
+    selectedDiseases.clear();
+    multiSelectMode = false;
+    updateMultiSelectUI();
+    const btn = document.getElementById('multiselect-toggle-btn');
+    if (btn) {
+      btn.classList.remove('btn-primary');
+      btn.innerHTML = '<i class="ti ti-checks" aria-hidden="true"></i> Select multiple';
+    }
+  }
+
+  function practiceMultiSelect() {
+    if (selectedDiseases.size === 0) return;
+    const scope = 'multi:' + [...selectedDiseases].join('|||');
+    openPracticeModal(scope);
+  }
+
   function countSystemImages(system) {
     let n = 0;
     for (const g of system.groups) {
-      for (const d of g.diseases) {
-        n += getImagesForDisease(d).length;
-      }
+      for (const d of g.diseases) n += getImagesForDisease(d).length;
     }
     return n;
   }
 
-  // ── Modal ────────────────────────────────────────────────────
   function openPracticeModal(scope) {
     currentScope = scope;
-    const images = getImagesForScope(scope);
-    const modal = document.getElementById('practice-modal');
+    let images;
+    if (scope.startsWith('multi:')) {
+      images = getImagesForMultiScope(scope);
+    } else if (scope.startsWith('group:')) {
+      images = getImagesForGroupScope(scope);
+    } else {
+      images = getImagesForScope(scope);
+    }
 
     let subtitle = 'All systems';
-    if (scope === 'all') {
-      subtitle = 'All systems';
-    } else if (scope.startsWith('disease:')) {
-      subtitle = scope.replace('disease:', '');
+    if (scope === 'all') subtitle = 'All systems';
+    else if (scope.startsWith('disease:')) subtitle = scope.replace('disease:', '');
+    else if (scope.startsWith('group:')) {
+      const parts = scope.split(':');
+      subtitle = decodeURIComponent(parts[2] || scope);
+    } else if (scope.startsWith('multi:')) {
+      const diseases = scope.replace('multi:', '').split('|||');
+      subtitle = diseases.slice(0, 2).join(', ') + (diseases.length > 2 ? ` +${diseases.length - 2} more` : '');
     } else {
       const sys = CATALOG.find(s => s.id === scope);
       if (sys) subtitle = sys.label;
@@ -426,7 +572,7 @@
     document.getElementById('images-available').textContent =
       images.length > 0 ? `${images.length} images available` : 'No images found for this selection.';
 
-    modal.classList.add('open');
+    document.getElementById('practice-modal').classList.add('open');
     document.getElementById('image-count').focus();
   }
 
@@ -446,12 +592,7 @@
     const count = parseInt(document.getElementById('image-count').value, 10);
     const shuffle = document.getElementById('shuffle-toggle').value === 'shuffle';
     if (!count || count < 1) return;
-
-    const params = new URLSearchParams({
-      scope: currentScope,
-      count: count,
-      shuffle: shuffle ? '1' : '0'
-    });
+    const params = new URLSearchParams({ scope: currentScope, count, shuffle: shuffle ? '1' : '0' });
     window.location.href = `practice.html?${params}`;
   }
 

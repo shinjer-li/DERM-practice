@@ -61,9 +61,9 @@ function showCard(index) {
   // Answer
   const answerEl = document.getElementById('answer-label');
   const hintEl   = document.getElementById('answer-hint');
-  answerEl.textContent = item.disease;
   answerEl.classList.add('hidden');
-  hintEl.style.display = '';
+  answerEl.textContent = item.disease;
+  // hintEl.style.display = '';
 
   const revealBtn = document.getElementById('btn-reveal');
   revealBtn.textContent = 'Reveal';
@@ -100,7 +100,7 @@ function reveal() {
   const revealBtn = document.getElementById('btn-reveal');
 
   answerEl.classList.remove('hidden');
-  hintEl.style.display = 'none';
+  // hintEl.style.display = 'none';
 
   revealBtn.textContent = 'Next →';
   revealBtn.classList.add('revealed');
@@ -126,8 +126,12 @@ function openMorePanel() {
 
   document.getElementById('panel-disease-name').textContent = item.disease;
 
+  // Store images on the panel for lightbox use
+  panel._panelImages = allImgs;
+  panel._panelDisease = item.disease;
+
   grid.innerHTML = allImgs.map((src, i) => `
-    <div class="thumb${src === item.path ? ' active' : ''}" onclick="jumpToImage('${CSS.escape(src)}')">
+    <div class="thumb${src === item.path ? ' active' : ''}" onclick="openPanelLightbox(${i})">
       <img src="${src}" alt="${item.disease} image ${i + 1}" loading="lazy" />
     </div>
   `).join('');
@@ -140,6 +144,50 @@ function closeModePanel() {
   document.getElementById('more-panel').classList.remove('open');
   morePanelOpen = false;
 }
+
+// ── Panel lightbox ────────────────────────────────────────────
+let panelLbIndex = 0;
+
+function openPanelLightbox(index) {
+  const panel = document.getElementById('more-panel');
+  const images = panel._panelImages || [];
+  const disease = panel._panelDisease || '';
+  if (!images.length) return;
+
+  panelLbIndex = index;
+  document.getElementById('plb-img').src = images[index];
+  document.getElementById('plb-img').alt = disease;
+  document.getElementById('plb-label').textContent = disease;
+  document.getElementById('plb-counter').textContent = `${index + 1} / ${images.length}`;
+  document.getElementById('panel-lightbox').classList.add('open');
+}
+
+function closePanelLightbox() {
+  document.getElementById('panel-lightbox').classList.remove('open');
+}
+
+function panelLbNav(dir) {
+  const panel = document.getElementById('more-panel');
+  const images = panel._panelImages || [];
+  panelLbIndex = Math.max(0, Math.min(images.length - 1, panelLbIndex + dir));
+  const disease = panel._panelDisease || '';
+  document.getElementById('plb-img').src = images[panelLbIndex];
+  document.getElementById('plb-label').textContent = disease;
+  document.getElementById('plb-counter').textContent = `${panelLbIndex + 1} / ${images.length}`;
+}
+
+document.addEventListener('keydown', e => {
+  const lb = document.getElementById('panel-lightbox');
+  if (!lb || !lb.classList.contains('open')) return;
+  if (e.key === 'Escape') { e.stopImmediatePropagation(); closePanelLightbox(); }
+  if (e.key === 'ArrowRight') panelLbNav(1);
+  if (e.key === 'ArrowLeft')  panelLbNav(-1);
+});
+
+document.getElementById('panel-lightbox')?.addEventListener('click', e => {
+  if (e.target === e.currentTarget) closePanelLightbox();
+});
+
 // ── Thumb hover preview ───────────────────────────────────────
 function showThumbPreview(e, escapedSrc) {
   const preview = document.getElementById('thumb-preview');
@@ -218,5 +266,27 @@ document.addEventListener('keydown', e => {
   else if (e.key === 'ArrowLeft'  || e.key === 'h') navigate(-1);
   else if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); reveal(); }
 });
+
+// ── Hint bar ──────────────────────────────────────────────────
+function toggleHint() {
+  const bar = document.getElementById('hint-bar');
+  const btn = document.getElementById('hint-toggle-btn');
+  const label = document.getElementById('hint-toggle-label');
+  const isOpen = !bar.classList.contains('hidden');
+  bar.classList.toggle('hidden', isOpen);
+  btn.classList.toggle('active', !isOpen);
+  label.textContent = isOpen ? 'Show shortcuts' : 'Hide shortcuts';
+  localStorage.setItem('mf_hint_open', isOpen ? '0' : '1');
+}
+
+// Restore state on load
+if (localStorage.getItem('mf_hint_open') === '0') {
+  const bar = document.getElementById('hint-bar');
+  const btn = document.getElementById('hint-toggle-btn');
+  const label = document.getElementById('hint-toggle-label');
+  if (bar) bar.classList.remove('hidden');
+  if (btn) btn.classList.add('active');
+  if (label) label.textContent = 'Hide shortcuts';
+}
 
 init();

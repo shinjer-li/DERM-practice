@@ -212,85 +212,106 @@ const CATALOG = [
   ]
 },
 
-  {
-    id: "gi",
-    label: "GI",
-    icon: "ti-stomach",
-    groups: [
-      {
-        label: "Upper GI",
-        diseases: [
-          "GERD",
-          "Barrett Esophagus",
-          "Esophageal Carcinoma",
-          "Peptic Ulcer Disease",
-          "Gastric Carcinoma",
-          "H. pylori"
-        ]
-      },
-      {
-        label: "Lower GI",
-        diseases: [
-          "Crohn Disease",
-          "Ulcerative Colitis",
-          "Colorectal Carcinoma",
-          "Diverticulosis",
-          "Ischemic Colitis",
-          "Appendicitis"
-        ]
-      },
-      {
-        label: "Liver & Pancreas",
-        diseases: [
-          "Cirrhosis",
-          "Hepatocellular Carcinoma",
-          "Cholangiocarcinoma",
-          "Acute Pancreatitis",
-          "Chronic Pancreatitis",
-          "Pancreatic Adenocarcinoma"
-        ]
-      }
-    ]
-  },
+{
+  id: "gi",
+  label: "GI",
+  icon: "ti-stethoscope",
+  groups: [
+    {
+      label: "Oral Cavity & Esophagus",
+      diseases: [
+        "Aphthous Ulcers",
+        "Oral Hairy Leukoplakia",
+        "Oral Squamous Cell Carcinoma",
+        "Achalasia",
+        "Eosinophilic Esophagitis",
+        "Esophagitis (Candida)",
+        "Esophagitis (CMV)",
+        "Esophageal Carcinoma",
+        "Zenker's Diverticulum",
+      ]
+    },
 
-  {
-    id: "msk",
-    label: "MSK",
-    icon: "ti-bone",
-    groups: [
-      {
-        label: "Bone",
-        diseases: [
-          "Osteosarcoma",
-          "Ewing Sarcoma",
-          "Giant Cell Tumor",
-          "Osteoid Osteoma",
-          "Chondrosarcoma",
-          "Paget Disease of Bone"
-        ]
-      },
-      {
-        label: "Joint & Soft Tissue",
-        diseases: [
-          "Rheumatoid Arthritis",
-          "Osteoarthritis",
-          "Gout",
-          "Pseudogout",
-          "Lupus",
-          "Fibromyalgia"
-        ]
-      },
-      {
-        label: "Muscle",
-        diseases: [
-          "Rhabdomyosarcoma",
-          "Leiomyosarcoma",
-          "Polymyositis",
-          "Dermatomyositis"
-        ]
-      }
-    ]
-  },
+    {
+      label: "Stomach & Duodenum",
+      diseases: [
+        "Stomach",
+        "Gastro-Duodenal Junction",
+        "Gastric Cancer (Signet ring cells)",
+        "Duodenum",
+        "Duodenal atresia",
+        "Annular pancreas",
+        "Pneumoperitoneum"
+      ]
+    },
+
+    {
+      label: "Small Intestine",
+      diseases: [
+        "Jejunum",
+        "Ileum",
+        "Celiac disease",
+        "Whipple disease (foamy macrophages)",
+        "Crohn's Disease",
+        "Jejunal and ileal atresia",
+        "Intussusception (target sign)",
+        "Small Bowel Obstruction"
+      ]
+    },
+
+    {
+      label: "Colon & Rectum",
+      diseases: [
+        "Ulcerative Colitis",
+        "Diverticulosis",
+        "Tubular Adenoma",
+        "Villous Adenoma",
+        "Colorectal Cancer (Apple core sign)",
+        "Volvulus (Coffee bean sign)",
+        "Hirschsprung Disease",
+        "Recto-Anal Junction"
+      ]
+    },
+
+    {
+      label: "Hepatobiliary",
+      diseases: [
+        "Hepatic Portal Triad",
+        "Hepatic Steatosis",
+        "Alcoholic Hepatitis (Mallory body)",
+        "Alcoholic Cirrhosis",
+        "Hemochromatosis",
+        "Wilson Disease (Kayser-Fleischer rings)",
+        "Alpha-1-Antitrypsin Deficiency",
+        "Primary Sclerosing Cholangitis (beading sign)",
+        "Cholecystitis"
+      ]
+    },
+
+    {
+      label: "Pancreas",
+      diseases: [
+        "Acute Pancreatitis",
+        "Chronic Pancreatitis",
+        "Annular pancreas"
+      ]
+    },
+    {
+      label: "High-Yield Histology & Anatomy",
+      diseases: [
+        "Duodenum",
+        "Jejunum",
+        "Ileum",
+        "Stomach",
+        "Esophageal-Gastro Junction",
+        "Gastro-Duodenal Junction",
+        "Recto-Anal Junction",
+        "Esophageal-Gastro Junction",
+        "Hepatic Portal Triad"
+      ]
+    },
+  ]
+},
 
   {
     id: "fod",

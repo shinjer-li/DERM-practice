@@ -8,6 +8,11 @@
     "images/Acanthosis Nigricans/40895.jpg",
     "images/Acanthosis Nigricans/41024.jpg"
   ],
+  "Achalasia": [
+    "images/Achalasia/1.jpg",
+    "images/Achalasia/2.jpg",
+    "images/Achalasia/3.jpg"
+  ],
   "Acne Vulgaris": [
     "images/Acne Vulgaris/2106161.jpg",
     "images/Acne Vulgaris/3267893.jpg",
@@ -49,6 +54,24 @@
     "images/Acute Myeloid Leukemia (AML)/8.jpg",
     "images/Acute Myeloid Leukemia (AML)/9.jpg"
   ],
+  "Acute Pancreatitis": [
+    "images/Acute Pancreatitis/1.jpg",
+    "images/Acute Pancreatitis/3.jpg",
+    "images/Acute Pancreatitis/4.jpg"
+  ],
+  "Alcoholic Cirrhosis": [
+    "images/Alcoholic Cirrhosis/1.jpg",
+    "images/Alcoholic Cirrhosis/2.jpg",
+    "images/Alcoholic Cirrhosis/3.jpg",
+    "images/Alcoholic Cirrhosis/4.jpg",
+    "images/Alcoholic Cirrhosis/5.jpg"
+  ],
+  "Alcoholic Hepatitis (Mallory body)": [
+    "images/Alcoholic Hepatitis (Mallory body)/1.jpg",
+    "images/Alcoholic Hepatitis (Mallory body)/2.jpg",
+    "images/Alcoholic Hepatitis (Mallory body)/3.jpg",
+    "images/Alcoholic Hepatitis (Mallory body)/4.jpg"
+  ],
   "Allergic Contact Dermatitis": [
     "images/Allergic Contact Dermatitis/172031.jpg",
     "images/Allergic Contact Dermatitis/307504.jpg",
@@ -59,6 +82,22 @@
     "images/Allergic Contact Dermatitis/574090.jpg",
     "images/Allergic Contact Dermatitis/575496.jpg",
     "images/Allergic Contact Dermatitis/577037.jpg"
+  ],
+  "Alpha-1-Antitrypsin Deficiency": [
+    "images/Alpha-1-Antitrypsin Deficiency/1.jpg",
+    "images/Alpha-1-Antitrypsin Deficiency/2.jpg",
+    "images/Alpha-1-Antitrypsin Deficiency/3.jpg",
+    "images/Alpha-1-Antitrypsin Deficiency/4.jpg"
+  ],
+  "Annular pancreas": [
+    "images/Annular pancreas/1.jpg",
+    "images/Annular pancreas/2.jpg"
+  ],
+  "Aphthous Ulcers": [
+    "images/Aphthous Ulcers/1.jpg",
+    "images/Aphthous Ulcers/2.jpg",
+    "images/Aphthous Ulcers/3.jpg",
+    "images/Aphthous Ulcers/4.jpg"
   ],
   "Aplastic anemia": [
     "images/Aplastic anemia/1.jpg",
@@ -111,11 +150,11 @@
     "images/Bullous Pemphigoid/770305.jpg"
   ],
   "Burkitt lymphoma": [
-    "images/Burkitt lymphoma/1.png",
+    "images/Burkitt lymphoma/1.jpg",
     "images/Burkitt lymphoma/2.JPG",
     "images/Burkitt lymphoma/3.jpg",
     "images/Burkitt lymphoma/4.jpg",
-    "images/Burkitt lymphoma/5.gif",
+    "images/Burkitt lymphoma/5.jpg",
     "images/Burkitt lymphoma/6.jpg"
   ],
   "Candida Albicans": [
@@ -127,6 +166,13 @@
     "images/Candida Albicans/6.jpg",
     "images/Candida Albicans/7.jpg"
   ],
+  "Celiac disease": [
+    "images/Celiac disease/1.jpg",
+    "images/Celiac disease/2.jpg",
+    "images/Celiac disease/3.jpg",
+    "images/Celiac disease/4.jpg",
+    "images/Celiac disease/5.jpg"
+  ],
   "Cellulitis": [
     "images/Cellulitis/2929664.jpg",
     "images/Cellulitis/3025050.jpg",
@@ -137,9 +183,30 @@
     "images/Cellulitis/453515.jpg",
     "images/Cellulitis/5299199.jpg"
   ],
-  "Chronic Lymphocytic Leukemia (CLL)": [
-    "images/Chronic Lymphocytic Leukemia (CLL)/1.webp",
-    "images/Chronic Lymphocytic Leukemia (CLL)/2.webp"
+  "Cholecystitis": [
+    "images/Cholecystitis/1.jpg",
+    "images/Cholecystitis/2.jpg",
+    "images/Cholecystitis/3.jpg",
+    "images/Cholecystitis/4.jpg"
+  ],
+  "Chronic Pancreatitis": [
+    "images/Chronic Pancreatitis/1.jpg",
+    "images/Chronic Pancreatitis/2.jpg",
+    "images/Chronic Pancreatitis/3.jpg"
+  ],
+  "Colorectal Cancer (Apple core sign)": [
+    "images/Colorectal Cancer (Apple core sign)/1.jpeg",
+    "images/Colorectal Cancer (Apple core sign)/2.jpg"
+  ],
+  "Crohn's Disease": [
+    "images/Crohn's Disease/1.jpg",
+    "images/Crohn's Disease/2.jpg",
+    "images/Crohn's Disease/3.jpg",
+    "images/Crohn's Disease/4.jpg",
+    "images/Crohn's Disease/5.jpg",
+    "images/Crohn's Disease/6.jpg",
+    "images/Crohn's Disease/7.jpg",
+    "images/Crohn's Disease/8.jpg"
   ],
   "Dacrocytes (\u201cteardrop cells\u201d)": [
     "images/Dacrocytes (\u201cteardrop cells\u201d)/1.jpg",
@@ -166,6 +233,13 @@
     "images/Dermatitis Herpetiformis/588479.jpg",
     "images/Dermatitis Herpetiformis/7180352.jpg"
   ],
+  "Diverticulosis": [
+    "images/Diverticulosis/1.jpg",
+    "images/Diverticulosis/2.jpg",
+    "images/Diverticulosis/3.jpg",
+    "images/Diverticulosis/4.jpg",
+    "images/Diverticulosis/5.jpg"
+  ],
   "Drug Induced Hypersensitivity Syndrome (DIHS)": [
     "images/Drug Induced Hypersensitivity Syndrome (DIHS)/1094591.jpg",
     "images/Drug Induced Hypersensitivity Syndrome (DIHS)/1094720.jpg",
@@ -187,6 +261,18 @@
     "images/Drug-induced Photosensitivity/374940.jpg",
     "images/Drug-induced Photosensitivity/374982.jpg"
   ],
+  "Duodenal atresia": [
+    "images/Duodenal atresia/1.jpg",
+    "images/Duodenal atresia/2.jpg",
+    "images/Duodenal atresia/3.jpg",
+    "images/Duodenal atresia/4.jpg"
+  ],
+  "Duodenum": [
+    "images/Duodenum/1.jpg",
+    "images/Duodenum/2.jpg",
+    "images/Duodenum/3.jpg",
+    "images/Duodenum/4.jpg"
+  ],
   "Echinocytes (\u201cburr cells\u201d)": [
     "images/Echinocytes (\u201cburr cells\u201d)/1.jpg",
     "images/Echinocytes (\u201cburr cells\u201d)/2.jpg",
@@ -205,6 +291,10 @@
     "images/Eosinophil/3.jpg",
     "images/Eosinophil/4.jpg",
     "images/Eosinophil/5.jpg"
+  ],
+  "Eosinophilic Esophagitis": [
+    "images/Eosinophilic Esophagitis/1.jpg",
+    "images/Eosinophilic Esophagitis/2.jpg"
   ],
   "Erysipelas": [
     "images/Erysipelas/1822243.jpg",
@@ -246,10 +336,41 @@
     "images/Erythrocytes/2.jpg",
     "images/Erythrocytes/3.jpg"
   ],
+  "Esophageal Carcinoma": [
+    "images/Esophageal Carcinoma/1.jpg",
+    "images/Esophageal Carcinoma/2.jpg",
+    "images/Esophageal Carcinoma/3.jpg"
+  ],
+  "Esophageal-Gastro Junction": [
+    "images/Esophageal-Gastro Junction/1.jpg",
+    "images/Esophageal-Gastro Junction/2.jpg",
+    "images/Esophageal-Gastro Junction/3.jpg"
+  ],
+  "Esophagitis (CMV)": [
+    "images/Esophagitis (CMV)/1.jpg",
+    "images/Esophagitis (CMV)/2.jpg",
+    "images/Esophagitis (CMV)/3.jpg",
+    "images/Esophagitis (CMV)/4.jpg"
+  ],
+  "Esophagitis (Candida)": [
+    "images/Esophagitis (Candida)/1.jpg",
+    "images/Esophagitis (Candida)/2.jpg",
+    "images/Esophagitis (Candida)/3.jpg"
+  ],
   "Essential thrombocythemia": [
     "images/Essential thrombocythemia/1.jpg",
     "images/Essential thrombocythemia/2.jpg",
     "images/Essential thrombocythemia/3.jpg"
+  ],
+  "Gastric Cancer (Signet ring cells)": [
+    "images/Gastric Cancer (Signet ring cells)/1.jpg",
+    "images/Gastric Cancer (Signet ring cells)/2.jpg",
+    "images/Gastric Cancer (Signet ring cells)/3.jpg",
+    "images/Gastric Cancer (Signet ring cells)/4.jpg"
+  ],
+  "Gastro-Duodenal Junction": [
+    "images/Gastro-Duodenal Junction/1.jpg",
+    "images/Gastro-Duodenal Junction/2.jpg"
   ],
   "Hairy Cell Leukemia": [
     "images/Hairy Cell Leukemia/1.jpg",
@@ -277,6 +398,27 @@
     "images/Heinz bodies/4.jpg",
     "images/Heinz bodies/5.jpg"
   ],
+  "Hemochromatosis": [
+    "images/Hemochromatosis/1.jpg",
+    "images/Hemochromatosis/2.jpg",
+    "images/Hemochromatosis/3.jpg",
+    "images/Hemochromatosis/4.jpg",
+    "images/Hemochromatosis/5.jpg",
+    "images/Hemochromatosis/6.jpg"
+  ],
+  "Hepatic Portal Triad": [
+    "images/Hepatic Portal Triad/1.jpg",
+    "images/Hepatic Portal Triad/2.jpg",
+    "images/Hepatic Portal Triad/3.jpg",
+    "images/Hepatic Portal Triad/4.jpg",
+    "images/Hepatic Portal Triad/5.jpg",
+    "images/Hepatic Portal Triad/6.jpg"
+  ],
+  "Hepatic Steatosis": [
+    "images/Hepatic Steatosis/1.jpg",
+    "images/Hepatic Steatosis/2.jpg",
+    "images/Hepatic Steatosis/3.jpg"
+  ],
   "Herpes Simplex Virus (HSV)": [
     "images/Herpes Simplex Virus (HSV)/176721.jpg",
     "images/Herpes Simplex Virus (HSV)/248988.jpg",
@@ -295,6 +437,17 @@
     "images/Hidradenitis Suppurativa (HS)/449293.jpg",
     "images/Hidradenitis Suppurativa (HS)/449385.jpg",
     "images/Hidradenitis Suppurativa (HS)/5351423.jpg"
+  ],
+  "Hirschsprung Disease": [
+    "images/Hirschsprung Disease/1.jpg",
+    "images/Hirschsprung Disease/2.jpg",
+    "images/Hirschsprung Disease/3.jpg",
+    "images/Hirschsprung Disease/4.jpg"
+  ],
+  "Horseshoe kidney": [
+    "images/Horseshoe kidney/1.jpg",
+    "images/Horseshoe kidney/2.jpg",
+    "images/Horseshoe kidney/3.jpg"
   ],
   "Howell-Jolly bodies": [
     "images/Howell-Jolly bodies/1.jpg",
@@ -323,6 +476,13 @@
     "images/Ichthyosis Vulgaris/657992.jpg",
     "images/Ichthyosis Vulgaris/6762930.jpg"
   ],
+  "Ileum": [
+    "images/Ileum/1.jpg",
+    "images/Ileum/2.jpg",
+    "images/Ileum/3.jpg",
+    "images/Ileum/4.jpg",
+    "images/Ileum/5.jpg"
+  ],
   "Impetigo": [
     "images/Impetigo/188415.jpg",
     "images/Impetigo/3432512.jpg",
@@ -331,12 +491,29 @@
     "images/Impetigo/5301859.jpg",
     "images/Impetigo/557633.jpg"
   ],
+  "Intussusception (target sign)": [
+    "images/Intussusception (target sign)/1.jpg",
+    "images/Intussusception (target sign)/2.jpg"
+  ],
   "Iron Deficiency Anemia": [
     "images/Iron Deficiency Anemia/1.jpg",
     "images/Iron Deficiency Anemia/2.jpg",
     "images/Iron Deficiency Anemia/3.jpg",
     "images/Iron Deficiency Anemia/4.jpg",
     "images/Iron Deficiency Anemia/5.jpg"
+  ],
+  "Jejunal and ileal atresia": [
+    "images/Jejunal and ileal atresia/1.jpg",
+    "images/Jejunal and ileal atresia/2.jpg",
+    "images/Jejunal and ileal atresia/3.jpg"
+  ],
+  "Jejunum": [
+    "images/Jejunum/1.jpg",
+    "images/Jejunum/2.jpg",
+    "images/Jejunum/3.jpg",
+    "images/Jejunum/4.jpg",
+    "images/Jejunum/5.jpg",
+    "images/Jejunum/6.jpg"
   ],
   "KeratinPearl (SCC)": [
     "images/KeratinPearl (SCC)/1.jpg"
@@ -491,6 +668,19 @@
     "images/Neutrophils/5.jpg",
     "images/Neutrophils/6.jpg"
   ],
+  "Oral Hairy Leukoplakia": [
+    "images/Oral Hairy Leukoplakia/1.jpg",
+    "images/Oral Hairy Leukoplakia/2.jpg",
+    "images/Oral Hairy Leukoplakia/3.jpg",
+    "images/Oral Hairy Leukoplakia/4.jpg",
+    "images/Oral Hairy Leukoplakia/5.jpg"
+  ],
+  "Oral Squamous Cell Carcinoma": [
+    "images/Oral Squamous Cell Carcinoma/1.jpg",
+    "images/Oral Squamous Cell Carcinoma/2.jpg",
+    "images/Oral Squamous Cell Carcinoma/3.jpg",
+    "images/Oral Squamous Cell Carcinoma/4.jpg"
+  ],
   "Pediculosis": [
     "images/Pediculosis/3442619.jpg",
     "images/Pediculosis/3442663.jpg",
@@ -525,6 +715,11 @@
     "images/Plasma Cell Dyscrasias/4.jpg",
     "images/Plasma Cell Dyscrasias/5.jpg"
   ],
+  "Pneumoperitoneum": [
+    "images/Pneumoperitoneum/1.jpg",
+    "images/Pneumoperitoneum/2.jpg",
+    "images/Pneumoperitoneum/3.jpg"
+  ],
   "Polycythemia vera (erythromelalgia)": [
     "images/Polycythemia vera (erythromelalgia)/1.jpg",
     "images/Polycythemia vera (erythromelalgia)/2.jpg",
@@ -551,6 +746,10 @@
     "images/Primary Central Nervous System (CNS) Lymphoma/2.jpg",
     "images/Primary Central Nervous System (CNS) Lymphoma/3.jpg",
     "images/Primary Central Nervous System (CNS) Lymphoma/4.jpg"
+  ],
+  "Primary Sclerosing Cholangitis (beading sign)": [
+    "images/Primary Sclerosing Cholangitis (beading sign)/1.jpeg",
+    "images/Primary Sclerosing Cholangitis (beading sign)/2.jpeg"
   ],
   "Pseudo-Pelger-Hu\u00ebt anomaly": [
     "images/Pseudo-Pelger-Hu\u00ebt anomaly/1.jpg",
@@ -579,6 +778,11 @@
     "images/Psoriasis/9674605.jpg",
     "images/Psoriasis/9674751.jpg",
     "images/Psoriasis/9827027.jpg"
+  ],
+  "Recto-Anal Junction": [
+    "images/Recto-Anal Junction/1.jpg",
+    "images/Recto-Anal Junction/2.jpg",
+    "images/Recto-Anal Junction/3.jpg"
   ],
   "Reed Sternberg Cell (Hodgkin Lymphoma)": [
     "images/Reed Sternberg Cell (Hodgkin Lymphoma)/1.jpg",
@@ -673,6 +877,12 @@
     "images/Sideroblastic Anemia/4.jpg",
     "images/Sideroblastic Anemia/5.jpg"
   ],
+  "Small Bowel Obstruction": [
+    "images/Small Bowel Obstruction/1.jpg",
+    "images/Small Bowel Obstruction/2.jpg",
+    "images/Small Bowel Obstruction/3.jpg",
+    "images/Small Bowel Obstruction/4.jpg"
+  ],
   "Spherocytes": [
     "images/Spherocytes/1.jpg",
     "images/Spherocytes/2.jpg",
@@ -708,6 +918,14 @@
     "images/Stevens-Johnson syndrome (SJS) and Toxic Epidermal Necrolysis (TEN)/609344.jpg",
     "images/Stevens-Johnson syndrome (SJS) and Toxic Epidermal Necrolysis (TEN)/616021.jpg"
   ],
+  "Stomach": [
+    "images/Stomach/1.jpg",
+    "images/Stomach/2.jpg",
+    "images/Stomach/3.jpg",
+    "images/Stomach/4.jpg",
+    "images/Stomach/5.jpg",
+    "images/Stomach/6.jpg"
+  ],
   "S\u00e9zary Cell": [
     "images/S\u00e9zary Cell/1.jpg",
     "images/S\u00e9zary Cell/2.jpg",
@@ -737,6 +955,23 @@
     "images/Tinea Versicolor/7723881.jpg",
     "images/Tinea Versicolor/797808.jpg"
   ],
+  "Tubular Adenoma": [
+    "images/Tubular Adenoma/1.jpg",
+    "images/Tubular Adenoma/2.jpg",
+    "images/Tubular Adenoma/3.jpg",
+    "images/Tubular Adenoma/4.jpg"
+  ],
+  "Ulcerative Colitis": [
+    "images/Ulcerative Colitis/1.jpg",
+    "images/Ulcerative Colitis/2.jpg",
+    "images/Ulcerative Colitis/3.jpg",
+    "images/Ulcerative Colitis/4.jpg",
+    "images/Ulcerative Colitis/5.jpg",
+    "images/Ulcerative Colitis/6.jpg",
+    "images/Ulcerative Colitis/7.jpg",
+    "images/Ulcerative Colitis/8.jpg",
+    "images/Ulcerative Colitis/9.jpg"
+  ],
   "Urticaria": [
     "images/Urticaria/1251754.jpg",
     "images/Urticaria/174617.jpg",
@@ -759,5 +994,34 @@
     "images/Varicella Zoster/2836682.jpg",
     "images/Varicella Zoster/2942364.jpg",
     "images/Varicella Zoster/645440.jpg"
+  ],
+  "Villous Adenoma": [
+    "images/Villous Adenoma/1.jpg",
+    "images/Villous Adenoma/2.jpg",
+    "images/Villous Adenoma/3.jpg",
+    "images/Villous Adenoma/4.jpg"
+  ],
+  "Volvulus (Coffee bean sign)": [
+    "images/Volvulus (Coffee bean sign)/1.jpg",
+    "images/Volvulus (Coffee bean sign)/2.jpg",
+    "images/Volvulus (Coffee bean sign)/3.jpg",
+    "images/Volvulus (Coffee bean sign)/4.jpg",
+    "images/Volvulus (Coffee bean sign)/5.jpg"
+  ],
+  "Whipple disease (foamy macrophages)": [
+    "images/Whipple disease (foamy macrophages)/1.jpg",
+    "images/Whipple disease (foamy macrophages)/2.jpg",
+    "images/Whipple disease (foamy macrophages)/3.jpg",
+    "images/Whipple disease (foamy macrophages)/4.jpg",
+    "images/Whipple disease (foamy macrophages)/5.jpg"
+  ],
+  "Wilson Disease (Kayser-Fleischer rings)": [
+    "images/Wilson Disease (Kayser-Fleischer rings)/1.jpg",
+    "images/Wilson Disease (Kayser-Fleischer rings)/2.jpg"
+  ],
+  "Zenker's Diverticulum": [
+    "images/Zenker's Diverticulum/1.jpg",
+    "images/Zenker's Diverticulum/2.jpg",
+    "images/Zenker's Diverticulum/3.jpg"
   ]
 }

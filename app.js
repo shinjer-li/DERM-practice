@@ -72,6 +72,9 @@ function getImagesForScope(scope) {
  * for a given scope.
  */
 function getAnnotatedImagesForScope(scope) {
+  if (scope.startsWith('group:')) return getAnnotatedImagesForGroupScope(scope);
+  if (scope.startsWith('multi:')) return getAnnotatedImagesForMultiScope(scope);
+
   if (scope === 'all') {
     const results = [];
     for (const [disease, paths] of Object.entries(MANIFEST)) {
@@ -87,7 +90,6 @@ function getAnnotatedImagesForScope(scope) {
 
   const system = CATALOG.find(s => s.id === scope);
   if (!system) return [];
-
   const results = [];
   for (const group of system.groups) {
     for (const disease of group.diseases) {
@@ -98,7 +100,6 @@ function getAnnotatedImagesForScope(scope) {
   }
   return results;
 }
-
 /**
  * Shuffle an array in-place (Fisher-Yates).
  */
@@ -114,8 +115,60 @@ function shuffle(arr) {
  * Derive a human-readable label for a scope string.
  */
 function scopeLabel(scope) {
-  if (scope === 'all') return 'All images';
+  if (scope === 'all') return 'Return Home';
   if (scope.startsWith('disease:')) return scope.replace('disease:', '');
+  if (scope.startsWith('group:')) {
+    const parts = scope.split(':');
+    return decodeURIComponent(parts.slice(2).join(':'));
+  }
+  if (scope.startsWith('multi:')) {
+    const diseases = scope.replace('multi:', '').split('|||');
+    return diseases.slice(0, 2).join(', ') + (diseases.length > 2 ? ` +${diseases.length - 2}` : '');
+  }
   const sys = CATALOG.find(s => s.id === scope);
   return sys ? sys.label : scope;
+}
+
+/**
+ * Get images for a group scope: 'group:systemId:groupLabel'
+ */
+function getImagesForGroupScope(scope) {
+  const parts = scope.split(':');
+  const systemId = parts[1];
+  const groupLabel = decodeURIComponent(parts.slice(2).join(':'));
+  const system = CATALOG.find(s => s.id === systemId);
+  if (!system) return [];
+  const group = system.groups.find(g => g.label === groupLabel);
+  if (!group) return [];
+  return group.diseases.flatMap(d => getImagesForDisease(d));
+}
+
+/**
+ * Get annotated images for group scope
+ */
+function getAnnotatedImagesForGroupScope(scope) {
+  const parts = scope.split(':');
+  const systemId = parts[1];
+  const groupLabel = decodeURIComponent(parts.slice(2).join(':'));
+  const system = CATALOG.find(s => s.id === systemId);
+  if (!system) return [];
+  const group = system.groups.find(g => g.label === groupLabel);
+  if (!group) return [];
+  return group.diseases.flatMap(d => getImagesForDisease(d).map(p => ({ path: p, disease: d })));
+}
+
+/**
+ * Get images for multi scope: 'multi:Disease1|||Disease2'
+ */
+function getImagesForMultiScope(scope) {
+  const diseases = scope.replace('multi:', '').split('|||');
+  return diseases.flatMap(d => getImagesForDisease(d));
+}
+
+/**
+ * Get annotated images for multi scope
+ */
+function getAnnotatedImagesForMultiScope(scope) {
+  const diseases = scope.replace('multi:', '').split('|||');
+  return diseases.flatMap(d => getImagesForDisease(d).map(p => ({ path: p, disease: d })));
 }

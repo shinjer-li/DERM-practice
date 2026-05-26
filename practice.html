@@ -57,22 +57,20 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 16px 24px 8px;
       position: relative;
     }
-
     /* ── Image card ── */
     .image-card {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      max-width: 880px;
+      max-width: 960px;
       width: 100%;
       height: 100%;
       gap: 0;
-    }
-
+}
     .image-frame {
       flex: 1;
       width: 100%;
@@ -85,15 +83,16 @@
       background: #f0ede8;
       border: 1px solid var(--border);
       position: relative;
+      min-height: 0;
+      height: 100%;
     }
 
     .image-frame img {
-      max-width: 100%;
-      max-height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
       display: block;
       border-radius: var(--radius-lg);
-      /* user-select: none; */
       -webkit-user-drag: none;
     }
 
@@ -126,7 +125,7 @@
       font-size: 1.5rem;
       font-weight: 400;
       color: var(--text-primary);
-      transition: opacity 0.2s;
+      /* transition: opacity 0.2s; */
     }
 
     .answer-label.hidden {
@@ -192,6 +191,76 @@
       border-color: var(--accent);
       color: var(--accent);
     }
+    /* ── Panel lightbox (reuse browse styles) ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,9,8,0.85);
+      z-index: 400;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-inner {
+      position: relative;
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .lightbox img {
+      width: 100%;
+      max-width: 100%;
+      max-height: calc(90vh - 100px);
+      object-fit: contain;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+      display: block;
+    }
+    .lightbox-label {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: #fff;
+      text-align: center;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -12px; right: -12px;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-nav:hover { background: rgba(255,255,255,0.2); }
+    .lightbox-nav.prev { left: -52px; }
+    .lightbox-nav.next { right: -52px; }
 
     /* ── More images panel ── */
     .more-panel {
@@ -283,6 +352,42 @@
       justify-content: center;
       margin-top: 8px;
     }
+    /* ── Hint bar ── */
+    .hint-bar {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 6px 20px;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+    .hint-bar.hidden { display: none; }
+    .hint-toggle-row {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      padding: 4px 20px 6px;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+    .hint-toggle-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 3px 10px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .hint-toggle-btn:hover { background: var(--surface); color: var(--text-primary); }
+    .hint-toggle-btn.active { background: var(--accent-light); border-color: var(--accent); color: var(--accent); }
 
     /* ── Keyboard hint ── */
     .kbd {
@@ -303,9 +408,12 @@
 
 <!-- Top bar -->
 <header class="practice-bar">
-  <a href="index.html" class="btn btn-ghost btn-sm" style="padding:4px 8px; color:var(--text-secondary)">
+  <a href="index.html" class="btn btn-ghost btn-sm" style="padding:8px 14px; color:var(--text-secondary)">
     <i class="ti ti-home" aria-hidden="true"></i>
   </a>
+  <div style="position:absolute;left:50%;transform:translateX(-50%);font-family:var(--serif);font-size:1.25rem;color:var(--text-primary)">
+    Shinjer's <span style="color:var(--accent)">Practice</span>
+  </div>
   <div class="practice-scope" id="scope-label">—</div>
   <div class="practice-progress" id="progress-label"></div>
 </header>
@@ -328,11 +436,11 @@
     <div class="answer-zone">
       <div class="answer-left">
         <div class="answer-label hidden" id="answer-label">—</div>
-        <div class="answer-hint" id="answer-hint">Press <span class="kbd">Space</span> or <span class="kbd">↵</span> to reveal</div>
+        <!-- <div class="answer-hint" id="answer-hint">Press <span class="kbd">Space</span> or <span class="kbd">↵</span> to reveal</div> -->
       </div>
       <div class="answer-right">
-        <button class="btn btn-sm" id="more-btn" onclick="toggleMorePanel()" title="See other images for this disease">
-          <i class="ti ti-layout-grid" aria-hidden="true"></i> More images
+        <button class="btn btn-sm" id="more-btn" onclick="toggleMorePanel()" title="Other images of this condition" aria-label="View more images">
+          <i class="ti ti-layout-grid" aria-hidden="true"></i>
         </button>
       </div>
     </div>
@@ -340,7 +448,7 @@
 
   <!-- More images panel -->
   <div class="more-panel" id="more-panel">
-    <div class="more-panel-header">All images — <span id="panel-disease-name"></span></div>
+    <div class="more-panel-header">Other views — <span id="panel-disease-name"></span></div>
     <div class="thumb-grid" id="thumb-grid"></div>
   </div>
 
@@ -375,6 +483,36 @@
 
   <button class="nav-btn" id="btn-next" onclick="navigate(1)" title="Next (→ Arrow)">
     <i class="ti ti-arrow-right" aria-hidden="true"></i>
+  </button>
+</div>
+
+<!-- Panel Lightbox -->
+<div class="lightbox" id="panel-lightbox" role="dialog" aria-modal="true">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closePanelLightbox()" aria-label="Close">
+      <i class="ti ti-x" aria-hidden="true"></i>
+    </button>
+    <button class="lightbox-nav prev" onclick="panelLbNav(-1)" aria-label="Previous">
+      <i class="ti ti-arrow-left" aria-hidden="true"></i>
+    </button>
+    <img id="plb-img" src="" alt="" />
+    <div class="lightbox-label" id="plb-label"></div>
+    <div class="lightbox-label" id="plb-counter" style="font-size:0.8rem;opacity:0.6"></div>
+    <button class="lightbox-nav next" onclick="panelLbNav(1)" aria-label="Next">
+      <i class="ti ti-arrow-right" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Hint bar -->
+<div id="hint-bar" class="hint-bar">
+  <span><span class="kbd">←</span><span class="kbd">→</span> Navigate</span>
+  <span><span class="kbd">Space</span> / <span class="kbd">↵</span> Reveal &amp; advance</span>
+  <span><span class="kbd">H</span><span class="kbd">L</span> also navigate</span>
+</div>
+<div class="hint-toggle-row">
+  <button class="hint-toggle-btn" id="hint-toggle-btn" onclick="toggleHint()" title="Toggle keyboard shortcuts">
+    <i class="ti ti-keyboard" aria-hidden="true"></i> <span id="hint-toggle-label">Show shortcuts</span>
   </button>
 </div>
 

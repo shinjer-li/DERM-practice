@@ -267,7 +267,49 @@
     .lightbox-nav:hover { background: rgba(255,255,255,0.2); }
     .lightbox-nav.prev { left: -52px; }
     .lightbox-nav.next { right: -52px; }
-
+    /* ── Practice modal ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(20,18,14,0.45);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      max-width: 440px;
+      width: 90%;
+      box-shadow: var(--shadow);
+    }
+    .modal h2 { font-size: 1.3rem; margin-bottom: 6px; }
+    .modal-subtitle { font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 24px; }
+    .form-group { margin-bottom: 20px; }
+    .form-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: var(--text-secondary);
+      letter-spacing: 0.02em;
+    }
+    .form-input {
+      width: 100%;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      font-family: var(--sans);
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--text-primary);
+      box-sizing: border-box;
+    }
+    .form-input:focus { outline: none; border-color: var(--accent); }
     /* ── Empty / loading ── */
     .browse-empty {
       text-align: center;
@@ -325,6 +367,32 @@
 
 </div>
 
+<!-- Browse Practice Modal -->
+<div class="modal-overlay" id="browse-modal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <h2>Practice</h2>
+    <p class="modal-subtitle" id="browse-modal-subtitle"></p>
+    <div class="form-group">
+      <label class="form-label" for="browse-image-count">Number of images</label>
+      <input class="form-input" type="number" id="browse-image-count" min="1" value="20" />
+      <div style="font-size:0.78rem;color:var(--text-muted);margin-top:4px" id="browse-images-available"></div>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="browse-shuffle-toggle">Order</label>
+      <select class="form-input" id="browse-shuffle-toggle">
+        <option value="shuffle">Shuffled</option>
+        <option value="sequential">Sequential</option>
+      </select>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:8px">
+      <button class="btn" onclick="closeBrowseModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="startBrowsePractice()">
+        <i class="ti ti-player-play"></i> Start
+      </button>
+    </div>
+  </div>
+</div>
+
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
   <div class="lightbox-inner">
@@ -368,7 +436,6 @@
     const nav = document.getElementById('sidebar-nav');
     nav.innerHTML = '';
 
-    // "All" entry
     const allBtn = document.createElement('button');
     allBtn.className = 'sidebar-item active';
     allBtn.id = 'nav-all';
@@ -382,9 +449,28 @@
       section.className = 'sidebar-section';
       section.dataset.systemId = system.id;
 
-      section.innerHTML = `<div class="sidebar-section-label">
-        <i class="ti ${system.icon}" aria-hidden="true"></i>${system.label}
-      </div>`;
+      const systemTotal = system.groups.flatMap(g => g.diseases).reduce((n, d) => n + getImagesForDisease(d).length, 0);
+
+      const header = document.createElement('div');
+      header.className = 'sidebar-section-label sidebar-section-toggle';
+      header.style.cursor = 'pointer';
+      header.style.userSelect = 'none';
+      header.innerHTML = `
+        <i class="ti ${system.icon}" aria-hidden="true" style="color:#57748f"></i>
+        <span style="flex:1;color:#57748f;font-weight:600">${system.label}</span>
+        <span class="count" style="font-size:0.7rem;color:var(--text-muted)">${systemTotal}</span>
+        <i class="ti ti-chevron-right toggle-chevron" style="font-size:0.75rem;transition:transform 0.2s;margin-left:4px"></i>
+      `;
+
+      const body = document.createElement('div');
+      body.className = 'sidebar-section-body';
+      body.style.display = 'none'; // collapsed by default
+
+      header.onclick = () => {
+        const open = body.style.display !== 'none';
+        body.style.display = open ? 'none' : '';
+        header.querySelector('.toggle-chevron').style.transform = open ? '' : 'rotate(90deg)';
+      };
 
       for (const group of system.groups) {
         for (const disease of group.diseases) {
@@ -394,26 +480,36 @@
           btn.dataset.disease = disease;
           btn.innerHTML = `<span class="disease-name">${disease}</span><span class="count">${imgs.length || ''}</span>`;
           if (imgs.length > 0) btn.onclick = () => selectDisease(disease);
-          section.appendChild(btn);
+          body.appendChild(btn);
         }
       }
 
+      section.appendChild(header);
+      section.appendChild(body);
       nav.appendChild(section);
     }
   }
 
   function filterSidebar(e) {
     const q = e.target.value.toLowerCase().trim();
-    document.querySelectorAll('#sidebar-nav .sidebar-item[data-disease]').forEach(btn => {
-      const name = (btn.dataset.disease || '').toLowerCase();
-      btn.style.display = q && !name.includes(q) ? 'none' : '';
-    });
     document.querySelectorAll('#sidebar-nav .sidebar-section').forEach(sec => {
-      const visible = [...sec.querySelectorAll('.sidebar-item')].some(b => b.style.display !== 'none');
-      sec.style.display = visible ? '' : 'none';
+      const body = sec.querySelector('.sidebar-section-body');
+      const header = sec.querySelector('.sidebar-section-toggle');
+      let anyVisible = false;
+      sec.querySelectorAll('.sidebar-item[data-disease]').forEach(btn => {
+        const name = (btn.dataset.disease || '').toLowerCase();
+        const hide = q && !name.includes(q);
+        btn.style.display = hide ? 'none' : '';
+        if (!hide) anyVisible = true;
+      });
+      sec.style.display = anyVisible || !q ? '' : 'none';
+      // Auto-expand when searching
+      if (q && body) {
+        body.style.display = anyVisible ? '' : 'none';
+        if (header) header.querySelector('.toggle-chevron').style.transform = anyVisible ? 'rotate(90deg)' : '';
+      }
     });
   }
-
   function selectDisease(disease) {
     currentDisease = disease;
 
@@ -503,19 +599,40 @@
   // ── Practice from current view ────────────────────────────────
   function practiceCurrentView() {
     const scope = currentDisease ? `disease:${currentDisease}` : 'all';
-    const params = new URLSearchParams({ scope, count: '20', shuffle: '1' });
+    const images = currentDisease ? getImagesForDisease(currentDisease) : Object.values(MANIFEST).flat();
+    document.getElementById('browse-modal-subtitle').textContent = currentDisease || 'All images';
+    document.getElementById('browse-image-count').value = Math.min(20, images.length);
+    document.getElementById('browse-image-count').max = images.length;
+    document.getElementById('browse-images-available').textContent =
+      images.length > 0 ? `${images.length} images available` : 'No images found.';
+    document.getElementById('browse-modal').dataset.scope = scope;
+    document.getElementById('browse-modal').classList.add('open');
+    document.getElementById('browse-image-count').focus();
+  }
+
+  function closeBrowseModal() {
+    document.getElementById('browse-modal').classList.remove('open');
+  }
+
+  function startBrowsePractice() {
+    const count = parseInt(document.getElementById('browse-image-count').value, 10);
+    const shuffle = document.getElementById('browse-shuffle-toggle').value === 'shuffle';
+    if (!count || count < 1) return;
+    const scope = document.getElementById('browse-modal').dataset.scope;
+    const params = new URLSearchParams({ scope, count, shuffle: shuffle ? '1' : '0' });
     window.location.href = `practice.html?${params}`;
   }
 
   // ── Keyboard ──────────────────────────────────────────────────
   document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeBrowseModal();
     const lb = document.getElementById('lightbox');
     if (!lb.classList.contains('open')) return;
     if (e.key === 'Escape')       closeLightbox();
-    if (e.key === 'ArrowRight')   lightboxNav(1);
-    if (e.key === 'ArrowLeft')    lightboxNav(-1);
   });
-
+  document.getElementById('browse-modal').addEventListener('click', e => {
+    if (e.target === e.currentTarget) closeBrowseModal();
+  });
   document.getElementById('lightbox').addEventListener('click', e => {
     if (e.target === e.currentTarget) closeLightbox();
   });
