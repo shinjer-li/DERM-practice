@@ -505,8 +505,8 @@
     const group = sys.groups.find(g => g.label === groupLabel);
     if (!group) return;
     const diseases = group.diseases.filter(d => getImagesForDisease(d).length > 0);
-    const allSelected = diseases.every(d => selectedDiseases.has(d));
-    diseases.forEach(d => allSelected ? selectedDiseases.delete(d) : selectedDiseases.add(d));
+    const anySelected = diseases.some(d => selectedDiseases.has(d));  // <-- changed
+    diseases.forEach(d => anySelected ? selectedDiseases.delete(d) : selectedDiseases.add(d));  // <-- changed
     updateMultiSelectUI();
   }
 
@@ -514,8 +514,8 @@
     const sys = CATALOG.find(s => s.id === systemId);
     if (!sys) return;
     const diseases = sys.groups.flatMap(g => g.diseases).filter(d => getImagesForDisease(d).length > 0);
-    const allSelected = diseases.every(d => selectedDiseases.has(d));
-    diseases.forEach(d => allSelected ? selectedDiseases.delete(d) : selectedDiseases.add(d));
+    const anySelected = diseases.some(d => selectedDiseases.has(d));  // <-- changed
+    diseases.forEach(d => anySelected ? selectedDiseases.delete(d) : selectedDiseases.add(d));  // <-- changed
     updateMultiSelectUI();
   }
 
