@@ -95,23 +95,63 @@
       font-family: var(--sans);
     }
 
-    .system-practice-btn {
-      font-size: 0.78rem;
-      padding: 4px 10px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border-mid);
-      background: transparent;
-      color: var(--text-secondary);
+    /* ── Checkboxes (system & group) ── */
+    .system-checkbox,
+    .group-checkbox {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid var(--border-mid);
+      border-radius: 3px;
+      background: var(--surface);
       cursor: pointer;
-      transition: background 0.15s, color 0.15s, border-color 0.15s;
-      font-family: var(--sans);
-      white-space: nowrap;
+      flex-shrink: 0;
+      position: relative;
+      transition: background 0.12s, border-color 0.12s;
     }
 
-    .system-practice-btn:hover {
+    .system-checkbox:checked,
+    .group-checkbox:checked {
       background: var(--accent);
-      color: white;
       border-color: var(--accent);
+    }
+
+    .system-checkbox:indeterminate,
+    .group-checkbox:indeterminate {
+      background: var(--accent-light);
+      border-color: var(--accent);
+    }
+
+    .system-checkbox:checked::after,
+    .group-checkbox:checked::after {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: 2.7px;
+      width: 8px;
+      height: 5px;
+      border-left: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transform: rotate(-45deg);
+    }
+
+    .system-checkbox:indeterminate::after,
+    .group-checkbox:indeterminate::after {
+      content: '';
+      position: absolute;
+      left: 3.2px;
+      top: 5.5px;
+      width: 8px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 1px;
+    }
+
+    .system-checkbox:hover:not(:checked):not(:indeterminate),
+    .group-checkbox:hover:not(:checked):not(:indeterminate) {
+      border-color: var(--accent);
+      background: var(--accent-light);
     }
     .group-practice-btn {
       font-size: 0.72rem;
@@ -303,9 +343,6 @@
         <button class="btn btn-primary" onclick="openPracticeModal('all')">
           <i class="ti ti-player-play" aria-hidden="true"></i> Practice all
         </button>
-        <button class="btn" id="multiselect-toggle-btn" onclick="toggleMultiSelectMode()">
-          <i class="ti ti-checks" aria-hidden="true"></i> Select multiple
-        </button>
         <a href="browse.html" class="btn">
           <i class="ti ti-photo-search" aria-hidden="true"></i> Browse images
         </a>
@@ -390,24 +427,32 @@
     `;
     document.body.appendChild(bar);
   }
-
+  function toggleDisease(disease) {
+    if (selectedDiseases.has(disease)) {
+      selectedDiseases.delete(disease);
+    } else {
+      selectedDiseases.add(disease);
+    }
+    updateMultiSelectUI();
+  }
   function buildSystemCard(system) {
     const card = document.createElement('div');
     card.className = 'system-card';
+    card.dataset.systemId = system.id;
     const totalImages = countSystemImages(system);
 
     card.innerHTML = `
-      <div class="system-header" onclick="if(multiSelectMode){ event.stopPropagation(); toggleSystem('${system.id}'); } else { openPracticeModal('${system.id}'); }">
+      <div class="system-header">
         <div class="system-header-left">
+          <input type="checkbox" class="system-checkbox" data-system="${system.id}"
+            onclick="event.stopPropagation(); toggleSystem('${system.id}')"
+            title="Select all in ${system.label}" />
           <div class="system-icon"><i class="ti ${system.icon}" aria-hidden="true"></i></div>
           <div>
             <div class="system-title">${system.label}</div>
             <div class="system-meta">${totalImages} image${totalImages !== 1 ? 's' : ''}</div>
           </div>
         </div>
-        <button class="system-practice-btn" onclick="event.stopPropagation(); openPracticeModal('${system.id}')">
-          Practice
-        </button>
       </div>
       <div class="system-body">
         ${system.groups.map(g => buildGroup(g, system)).join('')}
@@ -434,43 +479,25 @@
 
     return `
       <div class="group-block">
-        <div class="group-label" style="display:flex;align-items:center;justify-content:space-between;">
-          <span class="group-label-text" style="cursor:pointer;"
-            onclick="if(multiSelectMode){ event.stopPropagation(); toggleGroup('${escAttr(system.id)}','${escAttr(group.label)}'); }"
-            title="Click to select all in group">${group.label}</span>
-          ${hasImages ? `<button class="group-practice-btn" onclick="if(multiSelectMode){ event.stopPropagation(); toggleGroup('${escAttr(system.id)}','${escAttr(group.label)}'); } else { openPracticeModal('${escAttr(groupId)}'); }" title="${groupImages} images">
-            <i class="ti ti-player-play" style="font-size:0.7rem"></i> ${groupImages}
-          </button>` : `<span style="font-size:0.7rem;color:var(--text-muted)">${groupImages}</span>`}
+        <div class="group-label" style="display:flex;align-items:center;gap:7px;">
+          ${hasImages ? `<input type="checkbox" class="group-checkbox"
+            data-system="${escAttr(system.id)}" data-group="${escAttr(group.label)}"
+            onclick="event.stopPropagation(); toggleGroup('${escAttr(system.id)}','${escAttr(group.label)}')"
+            title="Select all in ${escAttr(group.label)}" />` : `<span style="width:16px;flex-shrink:0;display:inline-block"></span>`}
+          <span class="group-label-text">${group.label}</span>
+          <span style="margin-left:auto;font-size:0.7rem;color:var(--text-muted)">${groupImages}</span>
         </div>
         <div class="disease-chips">${chips}</div>
       </div>
     `;
   }
 
-  // Long-press or ctrl+click for multi-select; regular click for browse
   function handleChipClick(e, disease) {
-    if (multiSelectMode) {
-      e.preventDefault();
-      toggleDisease(disease);
-    } else {
-      openPracticeModal('disease:' + disease);
-    }
+    e.preventDefault();
+    toggleDisease(disease);
   }
 
-  function toggleMultiSelectMode() {
-    multiSelectMode = !multiSelectMode;
-    if (!multiSelectMode) {
-      clearMultiSelect(); // also clears selections and hides the bar
-    }
-    const btn = document.getElementById('multiselect-toggle-btn');
-    if (multiSelectMode) {
-      btn.classList.add('btn-primary');
-      btn.innerHTML = '<i class="ti ti-x" aria-hidden="true"></i> Cancel selection';
-    } else {
-      btn.classList.remove('btn-primary');
-      btn.innerHTML = '<i class="ti ti-checks" aria-hidden="true"></i> Select multiple';
-    }
-  }
+  // toggleMultiSelectMode removed — selection is always-on via checkboxes and chips
 
   function toggleGroup(systemId, groupLabel) {
     const sys = CATALOG.find(s => s.id === systemId);
@@ -480,7 +507,6 @@
     const diseases = group.diseases.filter(d => getImagesForDisease(d).length > 0);
     const allSelected = diseases.every(d => selectedDiseases.has(d));
     diseases.forEach(d => allSelected ? selectedDiseases.delete(d) : selectedDiseases.add(d));
-    multiSelectMode = selectedDiseases.size > 0;
     updateMultiSelectUI();
   }
 
@@ -490,7 +516,6 @@
     const diseases = sys.groups.flatMap(g => g.diseases).filter(d => getImagesForDisease(d).length > 0);
     const allSelected = diseases.every(d => selectedDiseases.has(d));
     diseases.forEach(d => allSelected ? selectedDiseases.delete(d) : selectedDiseases.add(d));
-    multiSelectMode = selectedDiseases.size > 0;
     updateMultiSelectUI();
   }
 
@@ -503,8 +528,8 @@
         `${selectedDiseases.size} patholog${selectedDiseases.size === 1 ? 'y' : 'ies'} selected`;
     } else {
       bar.style.display = 'none';
-      multiSelectMode = false;
     }
+
     // Update chip styles
     document.querySelectorAll('.disease-chip').forEach(chip => {
       const name = chip.textContent.replace(/\s*\d+\s*$/, '').trim();
@@ -514,17 +539,36 @@
         chip.classList.remove('selected');
       }
     });
+
+    // Update group checkboxes (checked / indeterminate / unchecked)
+    document.querySelectorAll('.group-checkbox').forEach(cb => {
+      const systemId = cb.dataset.system;
+      const groupLabel = cb.dataset.group;
+      const sys = CATALOG.find(s => s.id === systemId);
+      if (!sys) return;
+      const group = sys.groups.find(g => g.label === groupLabel);
+      if (!group) return;
+      const withImages = group.diseases.filter(d => getImagesForDisease(d).length > 0);
+      const selectedCount = withImages.filter(d => selectedDiseases.has(d)).length;
+      cb.checked = selectedCount === withImages.length && withImages.length > 0;
+      cb.indeterminate = selectedCount > 0 && selectedCount < withImages.length;
+    });
+
+    // Update system checkboxes (checked / indeterminate / unchecked)
+    document.querySelectorAll('.system-checkbox').forEach(cb => {
+      const systemId = cb.dataset.system;
+      const sys = CATALOG.find(s => s.id === systemId);
+      if (!sys) return;
+      const withImages = sys.groups.flatMap(g => g.diseases).filter(d => getImagesForDisease(d).length > 0);
+      const selectedCount = withImages.filter(d => selectedDiseases.has(d)).length;
+      cb.checked = selectedCount === withImages.length && withImages.length > 0;
+      cb.indeterminate = selectedCount > 0 && selectedCount < withImages.length;
+    });
   }
 
   function clearMultiSelect() {
     selectedDiseases.clear();
-    multiSelectMode = false;
     updateMultiSelectUI();
-    const btn = document.getElementById('multiselect-toggle-btn');
-    if (btn) {
-      btn.classList.remove('btn-primary');
-      btn.innerHTML = '<i class="ti ti-checks" aria-hidden="true"></i> Select multiple';
-    }
   }
 
   function practiceMultiSelect() {
