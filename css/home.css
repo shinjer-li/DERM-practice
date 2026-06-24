@@ -1,0 +1,251 @@
+/* home.css — Index page styles */
+
+.page-hero {
+  padding: 52px 0 36px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 40px;
+}
+
+.page-hero h1 {
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.page-hero p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  max-width: 520px;
+}
+
+.hero-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── System grid ── */
+.systems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.system-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.system-card:hover {
+  border-color: var(--border-mid);
+  box-shadow: var(--shadow-sm);
+}
+
+.system-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.system-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.system-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-light);
+  border-radius: var(--radius);
+  color: var(--accent);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.system-title {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+.system-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: var(--sans);
+}
+
+/* ── Checkboxes ── */
+.system-checkbox,
+.group-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--border-mid);
+  border-radius: 3px;
+  background: var(--surface);
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.system-checkbox:checked,
+.group-checkbox:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.system-checkbox:indeterminate,
+.group-checkbox:indeterminate {
+  background: var(--accent-light);
+  border-color: var(--accent);
+}
+
+.system-checkbox:checked::after,
+.group-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 2.7px;
+  width: 8px;
+  height: 5px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg);
+}
+
+.system-checkbox:indeterminate::after,
+.group-checkbox:indeterminate::after {
+  content: '';
+  position: absolute;
+  left: 3.2px;
+  top: 5.5px;
+  width: 8px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+
+.system-checkbox:hover:not(:checked):not(:indeterminate),
+.group-checkbox:hover:not(:checked):not(:indeterminate) {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+/* ── Group practice button ── */
+.group-practice-btn {
+  font-size: 0.72rem;
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+  font-family: var(--sans);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  white-space: nowrap;
+}
+
+.group-practice-btn:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+/* ── Disease chips ── */
+.system-body { padding: 16px 20px; }
+
+.group-block { margin-bottom: 16px; }
+.group-block:last-child { margin-bottom: 0; }
+
+.group-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.disease-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.disease-chip {
+  font-size: 0.8rem;
+  padding: 3px 9px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--text-secondary);
+  background: var(--bg);
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+  font-family: var(--sans);
+}
+
+.disease-chip:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.disease-chip.selected {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.disease-chip.no-images {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.disease-chip.no-images:hover {
+  background: var(--bg);
+  border-color: var(--border);
+  color: var(--text-secondary);
+}
+
+/* ── Multi-select bar ── */
+#multiselect-bar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-lg);
+  padding: 12px 20px;
+  display: none;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow);
+  z-index: 100;
+}
+
+/* ── Loading notice ── */
+.load-notice {
+  text-align: center;
+  padding: 80px 24px;
+  color: var(--text-muted);
+}
+
+.load-notice .spinner { margin: 0 auto 16px; }
